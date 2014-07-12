@@ -9,11 +9,11 @@
 @interface KGNPreferredFontManager : NSObject
 
 - (void)registerFontNamed:(NSString *)fontName
-         withBaseFontSize:(CGFloat)baseFontSize andIncrement:(CGFloat)increment
-             forTextStyle:(NSString *)textStyle;
+         withBaseFontSize:(CGFloat)baseFontSize increment:(CGFloat)increment
+                decrement:(CGFloat)decrement forTextStyle:(NSString *)textStyle;
 
 - (void)registerFontNamed:(NSString *)fontName
-         withBaseFontSize:(CGFloat)baseFontSize andIncrement:(CGFloat)increment
+         withBaseFontSize:(CGFloat)baseFontSize increment:(CGFloat)increment decrement:(CGFloat)decrement
              forTextStyle:(NSString *)textStyle includeAccessibilitySizes:(BOOL)accessibilitySizes;
 
 - (void)registerFontNamed:(NSString *)fontName

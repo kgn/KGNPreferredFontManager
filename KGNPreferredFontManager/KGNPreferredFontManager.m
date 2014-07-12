@@ -14,11 +14,11 @@
 
 @implementation KGNPreferredFontManager
 
-- (void)registerFontNamed:(NSString *)fontName withBaseFontSize:(CGFloat)baseFontSize andIncrement:(CGFloat)increment forTextStyle:(NSString *)textStyle{
-    [self registerFontNamed:fontName withBaseFontSize:baseFontSize andIncrement:increment forTextStyle:textStyle includeAccessibilitySizes:NO];
+- (void)registerFontNamed:(NSString *)fontName withBaseFontSize:(CGFloat)baseFontSize increment:(CGFloat)increment decrement:(CGFloat)decrement forTextStyle:(NSString *)textStyle{
+    [self registerFontNamed:fontName withBaseFontSize:baseFontSize increment:increment decrement:decrement forTextStyle:textStyle includeAccessibilitySizes:NO];
 }
 
-- (void)registerFontNamed:(NSString *)fontName withBaseFontSize:(CGFloat)baseFontSize andIncrement:(CGFloat)increment forTextStyle:(NSString *)textStyle includeAccessibilitySizes:(BOOL)accessibilitySizes{
+- (void)registerFontNamed:(NSString *)fontName withBaseFontSize:(CGFloat)baseFontSize increment:(CGFloat)increment decrement:(CGFloat)decrement forTextStyle:(NSString *)textStyle includeAccessibilitySizes:(BOOL)accessibilitySizes{
     NSArray *fontSizes = @[UIContentSizeCategoryExtraSmall, UIContentSizeCategorySmall, UIContentSizeCategoryMedium,
                            UIContentSizeCategoryLarge, UIContentSizeCategoryExtraLarge, UIContentSizeCategoryExtraExtraLarge,
                            UIContentSizeCategoryExtraExtraExtraLarge];
@@ -29,8 +29,14 @@
     NSUInteger middleIndex = floor([fontSizes count]/2);
     NSMutableDictionary *fonts = [NSMutableDictionary dictionaryWithCapacity:[fontSizes count]+[accessibilityFontSizes count]];
     [fontSizes enumerateObjectsUsingBlock:^(NSString *textSize, NSUInteger idx, BOOL *stop){
-        CGFloat fontSize = (idx-(CGFloat)middleIndex)*increment+baseFontSize;
-        fonts[textSize] = [UIFont fontWithName:fontName size:fontSize];
+        CGFloat fontSize = idx-(CGFloat)middleIndex;
+        if(fontSize < 0){
+            fontSize *= decrement;
+        }else{
+            fontSize *= increment;
+        }
+        fontSize += baseFontSize;
+        fonts[textSize] = [UIFont fontWithName:fontName size:round(fontSize)];
     }];
     [accessibilityFontSizes enumerateObjectsUsingBlock:^(NSString *textSize, NSUInteger idx, BOOL *stop){
         NSUInteger offset = -1;
