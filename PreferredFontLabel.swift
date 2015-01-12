@@ -54,7 +54,8 @@ class PreferredFontLabel: UILabel {
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
 
-    private func updateFont() {
+    // Use this to override what happens when the font is updated
+    func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
             if let textStyle = self.textStyle {
                 if let font = preferredFontManager.preferredFontForTextStyle(textStyle) {
