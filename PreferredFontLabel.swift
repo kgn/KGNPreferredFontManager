@@ -32,7 +32,7 @@ class PreferredFontLabel: UILabel {
         self.setup()
     }
 
-    override init(frame:CGRect) {
+    override init(frame: CGRect) {
         super.init(frame:frame)
         self.setup()
     }
@@ -54,24 +54,17 @@ class PreferredFontLabel: UILabel {
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
 
-    // Use this to override what happens when the font is updated
-    func updateFont() {
+    private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
-            if let textStyle = self.textStyle {
-                if let font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                    self.font = font
-                }
-            } else {
-                if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
-                    self.font = font
-                }
+            if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
+                self.font = font
+            } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
+                self.font = font
             }
+        } else if let textStyle = self.textStyle {
+            self.font = UIFont.preferredFontForTextStyle(textStyle)
         } else {
-            if let textStyle = self.textStyle {
-                self.font = UIFont.preferredFontForTextStyle(textStyle)
-            } else {
-                self.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            }
+            self.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         }
     }
 

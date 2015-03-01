@@ -1,5 +1,5 @@
 //
-//  PreferredFontTextField.swift
+//  PreferredFontButton.swift
 //  Vesting
 //
 //  Created by David Keegan on 1/11/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreferredFontTextField: UITextField {
+class PreferredFontButton: UIButton {
 
     var textStyle: String? = UIFontTextStyleBody {
         didSet {
@@ -19,6 +19,12 @@ class PreferredFontTextField: UITextField {
         didSet {
             self.updateFont()
         }
+    }
+
+    class func systemButton(textStyle: String? = nil) -> PreferredFontButton {
+        let button = self.buttonWithType(.System) as! PreferredFontButton
+        button.textStyle = textStyle
+        return button
     }
 
     init(textStyle: String) {
@@ -57,14 +63,14 @@ class PreferredFontTextField: UITextField {
     private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
             if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                self.font = font
+                self.titleLabel?.font = font
             } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
-                self.font = font
+                self.titleLabel?.font = font
             }
         } else if let textStyle = self.textStyle {
-            self.font = UIFont.preferredFontForTextStyle(textStyle)
+            self.titleLabel?.font = UIFont.preferredFontForTextStyle(textStyle)
         } else {
-            self.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            self.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         }
     }
 
