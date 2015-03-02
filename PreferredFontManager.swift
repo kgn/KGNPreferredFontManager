@@ -47,8 +47,10 @@ class PreferredFontManager: NSObject {
 
     func preferredFontForTextStyle(style: String) -> UIFont? {
         let sizeCategory = UIApplication.sharedApplication().preferredContentSizeCategory as String
-        if let sizes = self.fonts[style], font = sizes[sizeCategory] {
-            return font
+        if let sizes = self.fonts[style] {
+            if let font = sizes[sizeCategory] {
+                return font
+            }
         }
         return nil
     }

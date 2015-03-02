@@ -61,8 +61,10 @@ class PreferredFontSegmentedControl: UISegmentedControl {
 
     private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
-            if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+            if let textStyle = self.textStyle {
+                if let font = preferredFontManager.preferredFontForTextStyle(textStyle) {
+                    self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
+                }
             } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
                 self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
             }

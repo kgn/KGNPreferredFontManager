@@ -22,7 +22,7 @@ class PreferredFontButton: UIButton {
     }
 
     class func systemButton(textStyle: String? = nil) -> PreferredFontButton {
-        let button = self.buttonWithType(.System) as! PreferredFontButton
+        let button = self.buttonWithType(.System) as PreferredFontButton
         button.textStyle = textStyle
         return button
     }
@@ -62,8 +62,10 @@ class PreferredFontButton: UIButton {
 
     private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
-            if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                self.titleLabel?.font = font
+            if let textStyle = self.textStyle {
+                if let font = preferredFontManager.preferredFontForTextStyle(textStyle) {
+                    self.titleLabel?.font = font
+                }
             } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
                 self.titleLabel?.font = font
             }

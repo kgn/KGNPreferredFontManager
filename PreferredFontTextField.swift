@@ -56,8 +56,10 @@ class PreferredFontTextField: UITextField {
 
     private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
-            if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                self.font = font
+            if let textStyle = self.textStyle {
+                if let font = preferredFontManager.preferredFontForTextStyle(textStyle) {
+                    self.font = font
+                }
             } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
                 self.font = font
             }
