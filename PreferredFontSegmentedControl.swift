@@ -1,5 +1,5 @@
 //
-//  PreferredFontButton.swift
+//  PreferredFontSegmentedControl.swift
 //  Vesting
 //
 //  Created by David Keegan on 1/11/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreferredFontButton: UIButton {
+class PreferredFontSegmentedControl: UISegmentedControl {
 
     var textStyle: String? = UIFontTextStyleBody {
         didSet {
@@ -19,12 +19,6 @@ class PreferredFontButton: UIButton {
         didSet {
             self.updateFont()
         }
-    }
-
-    class func systemButton(textStyle: String? = nil) -> PreferredFontButton {
-        let button = self.buttonWithType(.System) as! PreferredFontButton
-        button.textStyle = textStyle
-        return button
     }
 
     init(textStyle: String) {
@@ -48,6 +42,11 @@ class PreferredFontButton: UIButton {
         self.setup()
     }
 
+    override init(items: [AnyObject]) {
+        super.init(items: items)
+        self.setup()
+    }
+
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -63,14 +62,14 @@ class PreferredFontButton: UIButton {
     private func updateFont() {
         if let preferredFontManager = self.preferredFontManager {
             if let textStyle = self.textStyle, font = preferredFontManager.preferredFontForTextStyle(textStyle) {
-                self.titleLabel?.font = font
+                self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
             } else if let font = preferredFontManager.preferredFontForTextStyle(UIFontTextStyleBody) {
-                self.titleLabel?.font = font
+                self.setTitleTextAttributes([NSFontAttributeName: font], forState: .Normal)
             }
         } else if let textStyle = self.textStyle {
-            self.titleLabel?.font = UIFont.preferredFontForTextStyle(textStyle)
+            self.setTitleTextAttributes([NSFontAttributeName: UIFont.preferredFontForTextStyle(textStyle)], forState: .Normal)
         } else {
-            self.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            self.setTitleTextAttributes([NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody)], forState: .Normal)
         }
     }
 
