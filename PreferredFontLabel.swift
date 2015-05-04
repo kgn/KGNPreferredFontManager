@@ -21,14 +21,14 @@ class PreferredFontLabel: UILabel {
         }
     }
 
-    init(textStyle: String) {
-        super.init()
+    convenience init(textStyle: String) {
+        self.init()
         self.textStyle = textStyle
         self.setup()
     }
 
-    override init() {
-        super.init()
+    init() {
+        super.init(frame: CGRectZero) // TODO: is this the best work around?
         self.setup()
     }
 
