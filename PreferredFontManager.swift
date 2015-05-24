@@ -11,7 +11,7 @@ import UIKit
 class PreferredFontManager: NSObject {
     private var fonts: [String: [String: UIFont?]] = [:]
 
-    func registerFontsForTextStyle(style: String, fontName: String, baseFontSize: Double, increment: Double, decrement: Double, includeAccessibilitySizes: Bool = false) {
+    func registerFontsForTextStyle(style: String, fontName: String, baseFontSize: CGFloat, increment: CGFloat = 0, decrement: CGFloat = 0, includeAccessibilitySizes: Bool = false) {
         let fontSizes = [UIContentSizeCategoryExtraSmall, UIContentSizeCategorySmall, UIContentSizeCategoryMedium,
             UIContentSizeCategoryLarge, UIContentSizeCategoryExtraLarge, UIContentSizeCategoryExtraExtraLarge,
             UIContentSizeCategoryExtraExtraExtraLarge]
@@ -20,10 +20,10 @@ class PreferredFontManager: NSObject {
             UIContentSizeCategoryAccessibilityExtraExtraExtraLarge]
 
         var fonts: [String: UIFont?] = [:]
-        let middleIndex = floor(Double(fontSizes.count)/2.0)
+        let middleIndex = fontSizes.count/2
 
         for (index, fontSize) in enumerate(fontSizes) {
-            var size = Double(index)-middleIndex
+            var size = CGFloat(index-middleIndex)
             if size < 0 {
                 size *= decrement
             } else {
@@ -38,7 +38,7 @@ class PreferredFontManager: NSObject {
             if includeAccessibilitySizes {
                 offset = index
             }
-            let size = (Double(offset+fontSizes.count)-middleIndex)*increment+baseFontSize
+            let size = CGFloat(offset+fontSizes.count-middleIndex)*increment+baseFontSize
             fonts[fontSize] = UIFont(name: fontName, size: CGFloat(size))
         }
 
