@@ -13,6 +13,12 @@
 		836E696D1BCBA7D00089EAB1 /* PreferredFontButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696A1BCBA7D00089EAB1 /* PreferredFontButton.swift */; settings = {ASSET_TAGS = (); }; };
 		836E696E1BCBA7D00089EAB1 /* PreferredFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696B1BCBA7D00089EAB1 /* PreferredFontLabel.swift */; settings = {ASSET_TAGS = (); }; };
 		836E696F1BCBA7D00089EAB1 /* PreferredFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696C1BCBA7D00089EAB1 /* PreferredFontManager.swift */; settings = {ASSET_TAGS = (); }; };
+		83E88E5B1BCF5AD20018D5A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E88E5A1BCF5AD20018D5A9 /* AppDelegate.swift */; };
+		83E88E651BCF5AD20018D5A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E88E631BCF5AD20018D5A9 /* LaunchScreen.storyboard */; };
+		83E88E791BCF5B310018D5A9 /* FontTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E88E781BCF5B310018D5A9 /* FontTestViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		83E88E7A1BCF5BC30018D5A9 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; };
+		83E88E7C1BCF5E110018D5A9 /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */; };
+		83E88E7F1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM in Copy dSYM */ = {isa = PBXBuildFile; fileRef = 83E88E7E1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +31,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		83E88E7D1BCF5E280018D5A9 /* Copy dSYM */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				83E88E7F1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM in Copy dSYM */,
+			);
+			name = "Copy dSYM";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNPreferredFontManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNPreferredFontManager.h; sourceTree = "<group>"; };
@@ -35,6 +55,13 @@
 		836E696A1BCBA7D00089EAB1 /* PreferredFontButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredFontButton.swift; sourceTree = "<group>"; };
 		836E696B1BCBA7D00089EAB1 /* PreferredFontLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredFontLabel.swift; sourceTree = "<group>"; };
 		836E696C1BCBA7D00089EAB1 /* PreferredFontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredFontManager.swift; sourceTree = "<group>"; };
+		83E88E581BCF5AD20018D5A9 /* KGNPreferredFontManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KGNPreferredFontManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83E88E5A1BCF5AD20018D5A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		83E88E641BCF5AD20018D5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83E88E661BCF5AD20018D5A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E88E781BCF5B310018D5A9 /* FontTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTestViewController.swift; sourceTree = "<group>"; };
+		83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KGNAutoLayout.framework; path = ../Carthage/Build/iOS/KGNAutoLayout.framework; sourceTree = "<group>"; };
+		83E88E7E1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = KGNAutoLayout.framework.dSYM; path = ../Carthage/Build/iOS/KGNAutoLayout.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +80,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83E88E551BCF5AD20018D5A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83E88E7A1BCF5BC30018D5A9 /* KGNPreferredFontManager.framework in Frameworks */,
+				83E88E7C1BCF5E110018D5A9 /* KGNAutoLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		836E69461BCBA6F50089EAB1 = {
 			isa = PBXGroup;
 			children = (
+				83E88E591BCF5AD20018D5A9 /* Example */,
 				836E69521BCBA6F50089EAB1 /* Source */,
 				836E695E1BCBA6F50089EAB1 /* Tests */,
 				836E69511BCBA6F50089EAB1 /* Products */,
@@ -70,6 +107,7 @@
 			children = (
 				836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */,
 				836E695A1BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.xctest */,
+				83E88E581BCF5AD20018D5A9 /* KGNPreferredFontManagerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +131,19 @@
 				836E69611BCBA6F50089EAB1 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		83E88E591BCF5AD20018D5A9 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				83E88E5A1BCF5AD20018D5A9 /* AppDelegate.swift */,
+				83E88E781BCF5B310018D5A9 /* FontTestViewController.swift */,
+				83E88E631BCF5AD20018D5A9 /* LaunchScreen.storyboard */,
+				83E88E661BCF5AD20018D5A9 /* Info.plist */,
+				83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */,
+				83E88E7E1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +196,25 @@
 			productReference = 836E695A1BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		83E88E571BCF5AD20018D5A9 /* KGNPreferredFontManagerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83E88E761BCF5AD20018D5A9 /* Build configuration list for PBXNativeTarget "KGNPreferredFontManagerExample" */;
+			buildPhases = (
+				83E88E541BCF5AD20018D5A9 /* Sources */,
+				83E88E551BCF5AD20018D5A9 /* Frameworks */,
+				83E88E561BCF5AD20018D5A9 /* Resources */,
+				83E88E7D1BCF5E280018D5A9 /* Copy dSYM */,
+				83E88E801BCF5E520018D5A9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KGNPreferredFontManagerExample;
+			productName = KGNPreferredFontManagerExample;
+			productReference = 83E88E581BCF5AD20018D5A9 /* KGNPreferredFontManagerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,6 +231,9 @@
 					836E69591BCBA6F50089EAB1 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
+					83E88E571BCF5AD20018D5A9 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 836E694A1BCBA6F50089EAB1 /* Build configuration list for PBXProject "KGNPreferredFontManager" */;
@@ -169,6 +242,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 836E69461BCBA6F50089EAB1;
 			productRefGroup = 836E69511BCBA6F50089EAB1 /* Products */;
@@ -177,6 +251,7 @@
 			targets = (
 				836E694F1BCBA6F50089EAB1 /* KGNPreferredFontManager */,
 				836E69591BCBA6F50089EAB1 /* KGNPreferredFontManagerTests */,
+				83E88E571BCF5AD20018D5A9 /* KGNPreferredFontManagerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +271,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83E88E561BCF5AD20018D5A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83E88E651BCF5AD20018D5A9 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83E88E801BCF5E520018D5A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/KGNAutoLayout.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		836E694B1BCBA6F50089EAB1 /* Sources */ = {
@@ -217,6 +317,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83E88E541BCF5AD20018D5A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83E88E5B1BCF5AD20018D5A9 /* AppDelegate.swift in Sources */,
+				83E88E791BCF5B310018D5A9 /* FontTestViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -226,6 +335,17 @@
 			targetProxy = 836E695C1BCBA6F50089EAB1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83E88E631BCF5AD20018D5A9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83E88E641BCF5AD20018D5A9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		836E69621BCBA6F50089EAB1 /* Debug */ = {
@@ -374,6 +494,36 @@
 			};
 			name = Release;
 		};
+		83E88E721BCF5AD20018D5A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNPreferredFontManagerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83E88E731BCF5AD20018D5A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNPreferredFontManagerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,6 +553,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		83E88E761BCF5AD20018D5A9 /* Build configuration list for PBXNativeTarget "KGNPreferredFontManagerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83E88E721BCF5AD20018D5A9 /* Debug */,
+				83E88E731BCF5AD20018D5A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
