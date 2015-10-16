@@ -7,6 +7,13 @@
 [![Build Status](https://travis-ci.org/kgn/KGNPreferredFontManager.svg)](https://travis-ci.org/kgn/KGNPreferredFontManager)
 [![Twitter](https://img.shields.io/badge/Twitter-@iamkgn-55ACEE.svg)](http://twitter.com/iamkgn)
 
+TODO:
+- [X] Badges
+- [ ] Tests
+- [ ] Description
+- [ ] Documentation
+- [X] Example App
+
 # Example
 
 Checkout the `KGNPreferredFontManagerExample` app target for an example of how to use and customize your dynamic fonts.
