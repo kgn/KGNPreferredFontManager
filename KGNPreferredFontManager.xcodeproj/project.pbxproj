@@ -561,6 +561,7 @@
 				83E88E731BCF5AD20018D5A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
