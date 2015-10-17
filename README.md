@@ -78,8 +78,8 @@ button.preferredFontManager = App.PreferredFontManager
 ## TODO:
 - [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
 - [ ] Badges (Update release)
-- [X] Tests
+- [ ] Tests (Confirm they are working)
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
 - [X] Description
-- [ ] Documentation
+- [ ] Documentation (Add to code, confirm it’s working)
