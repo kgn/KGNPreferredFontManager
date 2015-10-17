@@ -11,7 +11,7 @@ env:
     - SDK=iphonesimulator9.0
 
 before_install:
-  - export PROJECT=KGNColor
+  - export PROJECT=KGNPreferredFontManager
   - export SCHEME=$PROJECT    
 
 script: 

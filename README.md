@@ -2,8 +2,6 @@
 
 Helper class to registering custom fonts for `UIFontTextStyle`.
 
-[![Example Gif](https://d13yacurqjgara.cloudfront.net/users/7253/screenshots/1877784/fonts.gif)](https://dribbble.com/shots/1877784-Dynamic-Fonts)
-
 [![iOS 8.2+](http://img.shields.io/badge/iOS-8.2%2B-blue.svg)]()
 [![Xcode 7.0](http://img.shields.io/badge/Xcode-7.0-blue.svg)]()
 [![Swift 2.0](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
@@ -16,6 +14,8 @@ Helper class to registering custom fonts for `UIFontTextStyle`.
 [![CocoaPods Platforms](https://img.shields.io/cocoapods/p/KGNPreferredFontManager.svg)](https://cocoapods.org/pods/KGNPreferredFontManager)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@iamkgn-55ACEE.svg)](http://twitter.com/iamkgn)
+
+[![Example Gif](https://d13yacurqjgara.cloudfront.net/users/7253/screenshots/1877784/fonts.gif)](https://dribbble.com/shots/1877784-Dynamic-Fonts)
 
 ## Installing
 
@@ -77,9 +77,9 @@ button.preferredFontManager = App.PreferredFontManager
 
 ## TODO:
 - [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
-- [X] Badges
+- [ ] Badges (Update release)
 - [X] Tests
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
-- [X] Description (Need more examples)
+- [X] Description
 - [ ] Documentation
