@@ -40,6 +40,8 @@ The following code registers each of the standard text styles with a `fontWeight
 
 There is an additional property that defines if the incrementing should extend into the extra accessibility size categories. This `includeAccessibilitySizes` argument is `false` by default, but is often useful to make sure body text is extra large, like in `Messages.app`.
 
+Check out the Example app provided to see all of this in action.
+
 ``` Swift
 let preferredFontManager = PreferredFontManager()
 preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: nil, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)

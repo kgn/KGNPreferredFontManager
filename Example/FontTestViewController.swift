@@ -14,7 +14,7 @@ private let FontTestPreferredFontManager: PreferredFontManager = {
     let preferredFontManager = PreferredFontManager()
     preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: nil, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
     preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1)
+    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
     preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: nil, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
     preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
     preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
