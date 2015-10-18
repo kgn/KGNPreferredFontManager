@@ -14,6 +14,8 @@ Helper class to registering custom fonts for `UIFontTextStyle`.
 [![CocoaPods Platforms](https://img.shields.io/cocoapods/p/KGNPreferredFontManager.svg)](https://cocoapods.org/pods/KGNPreferredFontManager)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@iamkgn-55ACEE.svg)](http://twitter.com/iamkgn)
+[![Star](https://img.shields.io/github/followers/kgn.svg?style=social&label=Follow%20%40kgn)](https://github.com/kgn)
+[![Star](https://img.shields.io/github/stars/kgn/KGNPreferredFontManager.svg?style=social&label=Star)](https://github.com/kgn/KGNPreferredFontManager)
 
 [![Example Gif](https://d13yacurqjgara.cloudfront.net/users/7253/screenshots/1877784/fonts.gif)](https://dribbble.com/shots/1877784-Dynamic-Fonts)
 
@@ -77,9 +79,9 @@ button.preferredFontManager = App.PreferredFontManager
 
 ## TODO:
 - [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
-- [ ] Badges (Update release)
-- [ ] Tests (Confirm they are working)
+- [X] Badges
+- [X] Tests
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
 - [X] Description
-- [ ] Documentation (Add to code, confirm it’s working)
+- [ ] Documentation (Add to code)
