@@ -81,7 +81,7 @@ button.preferredFontManager = App.PreferredFontManager
 
 ## TODO:
 - [X] Tests
-- [ ] Travis
+- [X] Travis
 - [X] Badges
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
