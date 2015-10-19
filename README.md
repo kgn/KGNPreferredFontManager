@@ -80,7 +80,7 @@ button.preferredFontManager = App.PreferredFontManager
 ```
 
 ## TODO:
-- [X] Tests
+- [ ] Tests (Add tests for fontName)
 - [X] Travis
 - [X] Badges
 - [X] Carthage

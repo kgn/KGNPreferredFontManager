@@ -18,7 +18,16 @@ public class PreferredFontManager: NSObject {
         UIContentSizeCategoryAccessibilityExtraLarge, UIContentSizeCategoryAccessibilityExtraExtraLarge,
         UIContentSizeCategoryAccessibilityExtraExtraExtraLarge]
 
-    public func registerFontsForTextStyle(style: String, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFontsForTextStyle(style: String, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+        self.registerFontsForTextStyle(style, fontName: fontName, fontWeight: nil, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
+    }
+
+    @available(iOS 8.2, *)
+    public func registerFontsForTextStyle(style: String, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+        self.registerFontsForTextStyle(style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
+    }
+
+    private func registerFontsForTextStyle(style: String, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         var fonts: [String: UIFont?] = [:]
         let middleIndex = floor(CGFloat(self.fontSizes.count)/2.0)
 
@@ -34,7 +43,12 @@ public class PreferredFontManager: NSObject {
             if fontName != nil {
                 fonts[fontSize] = UIFont(name: fontName!, size: size)
             } else if fontWeight != nil {
-                fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                if #available(iOS 8.2, *) {
+                    fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                } else {
+                    assert(true, "Only supported on iOS 8.2+")
+                    return
+                }
             }
         }
 
@@ -48,7 +62,12 @@ public class PreferredFontManager: NSObject {
             if fontName != nil {
                 fonts[fontSize] = UIFont(name: fontName!, size: size)
             } else if fontWeight != nil {
-                fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                if #available(iOS 8.2, *) {
+                    fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                } else {
+                    assert(true, "Only supported on iOS 8.2+")
+                    return
+                }
             }
         }
 
