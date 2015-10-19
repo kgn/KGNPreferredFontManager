@@ -85,5 +85,5 @@ button.preferredFontManager = App.PreferredFontManager
 - [X] Badges
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
-- [X] Description
+- [X] Description (Add fontName examples)
 - [ ] Documentation (Add to code)
