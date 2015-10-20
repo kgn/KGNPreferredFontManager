@@ -2,7 +2,7 @@
 
 Helper class to registering custom fonts for `UIFontTextStyle`.
 
-[![iOS 8.2+](http://img.shields.io/badge/iOS-8.2%2B-blue.svg)]()
+[![iOS 8.0+](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
 [![Xcode 7.0](http://img.shields.io/badge/Xcode-7.0-blue.svg)]()
 [![Swift 2.0](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
 [![Release](https://img.shields.io/github/release/kgn/KGNPreferredFontManager.svg)](/releases)
@@ -40,16 +40,31 @@ The following code registers each of the standard text styles with a `fontWeight
 
 There is an additional property that defines if the incrementing should extend into the extra accessibility size categories. This `includeAccessibilitySizes` argument is `false` by default, but is often useful to make sure body text is extra large, like in `Messages.app`.
 
-Check out the Example app provided to see all of this in action.
+There are two versions of this method. One takes `fontWeight: CGFloat`, which is a `UIFontWeight...` constant introduced in `iOS 8.2`. The other takes `fontName: String` which is a the name of the font, either a system one or a custom one.
+
+#### fontWeight(iOS 8.2+)
+Check out the Example app provided to see this in action.
 
 ``` Swift
 let preferredFontManager = PreferredFontManager()
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: nil, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: nil, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: nil, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+```
+
+#### fontName
+
+``` Swift
+let preferredFontManager = PreferredFontManager()
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: "AvenirNext-Light", baseFontSize: 28, increment: 2, decrement: 2)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: "AvenirNext-Regular", baseFontSize: 22, increment: 2, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontName: "AvenirNext-Regular", baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: "AvenirNext-Medium", baseFontSize: 15, increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: "AvenirNext-Regular", baseFontSize: 13, increment: 1, decrement: 1)
+preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: "AvenirNext-Regular", baseFontSize: 11, increment: 1, decrement: 1)
 ```
 
 ### PreferredFontButton & PreferredFontLabel
@@ -85,5 +100,5 @@ button.preferredFontManager = App.PreferredFontManager
 - [X] Badges
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
-- [ ] Description (Add fontName examples)
+- [X] Description
 - [X] Documentation
