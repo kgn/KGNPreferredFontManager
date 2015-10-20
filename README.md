@@ -1,6 +1,6 @@
 # KGNPreferredFontManager
 
-Helper class to registering custom fonts for `UIFontTextStyle`.
+Helper class to registering custom fonts for `UIFontTextStyle`. 
 
 [![iOS 8.0+](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
 [![Xcode 7.0](http://img.shields.io/badge/Xcode-7.0-blue.svg)]()
@@ -16,6 +16,12 @@ Helper class to registering custom fonts for `UIFontTextStyle`.
 [![Twitter](https://img.shields.io/badge/Twitter-@iamkgn-55ACEE.svg)](http://twitter.com/iamkgn)
 [![Star](https://img.shields.io/github/followers/kgn.svg?style=social&label=Follow%20%40kgn)](https://github.com/kgn)
 [![Star](https://img.shields.io/github/stars/kgn/KGNPreferredFontManager.svg?style=social&label=Star)](https://github.com/kgn/KGNPreferredFontManager)
+
+`iOS 7` introduced the concept of dynamic fonts for accessibility and readability. This library makes it easy to implement these features to help make your app more accessible and readable.
+
+This library also helps keep the fonts in your app consistent by setting a strict set of fonts to use based on the text styles introduced in `iOS 7`.
+
+Subclasses of `UILabel` and `UIButton` are also provided that work with these text styles and the `KGNPreferredFontManager` to automatically update and resize to the appropriate font size for the user’s text size and accessibility settings. It is recommended that [KGNAutoLayout](https://github.com/kgn/KGNAutoLayout) be used in conjunction with this library so that elements resize and adjust appropriately as font sizes change.
 
 [![Example Gif](https://d13yacurqjgara.cloudfront.net/users/7253/screenshots/1877784/fonts.gif)](https://dribbble.com/shots/1877784-Dynamic-Fonts)
 
