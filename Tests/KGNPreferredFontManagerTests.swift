@@ -52,7 +52,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
 
         for (sizeCategory, fontSize) in sizes {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
-            XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight))
+            XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight+1))
         }
     }
 
