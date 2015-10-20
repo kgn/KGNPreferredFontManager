@@ -80,10 +80,10 @@ button.preferredFontManager = App.PreferredFontManager
 ```
 
 ## TODO:
-- [ ] Tests (Add tests for fontName)
+- [ ] Tests (Figure out tests for iOS 8.1)
 - [X] Travis
 - [X] Badges
 - [X] Carthage
 - [ ] CocoaPods (Just need to publish)
-- [X] Description (Add fontName examples)
-- [ ] Documentation (Add to code)
+- [ ] Description (Add fontName examples)
+- [X] Documentation

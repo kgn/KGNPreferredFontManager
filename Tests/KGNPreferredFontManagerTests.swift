@@ -9,6 +9,7 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
+@available(iOS 8.2, *)
 class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     
     func testFontWeightHeadline() {
