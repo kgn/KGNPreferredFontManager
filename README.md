@@ -100,11 +100,11 @@ let button = PreferredFontButton()
 button.preferredFontManager = App.PreferredFontManager
 ```
 
-## TODO:
-- [ ] Tests (Figure out tests for iOS 8.1)
+## Progress:
+- [ ] Tests (Figure how to exclude `fontWeight` tests on `iOS 8.1`)
 - [X] Travis
 - [X] Badges
 - [X] Carthage
-- [ ] CocoaPods (Just need to publish)
+- [X] CocoaPods
 - [X] Description
 - [X] Documentation

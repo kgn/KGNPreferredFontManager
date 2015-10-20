@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.source = {:git => 'https://github.com/kgn/KGNPreferredFontManager.git', :tag => "v#{spec.version}"}
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
 
-  spec.platform = :ios, '8.2'
+  spec.platform = :ios, '8.0'
   spec.requires_arc = true
   spec.frameworks = 'UIKit'
   spec.source_files = 'Source/PreferredFont*.swift'
