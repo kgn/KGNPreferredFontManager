@@ -10,7 +10,7 @@ env:
     - DESTINATION="OS=9.0,name=iPhone 6"
     - DESTINATION="OS=9.0,name=iPhone 6 Plus"
 
-    # - DESTINATION="OS=8.1,name=iPad 2"
+    - DESTINATION="OS=8.1,name=iPad 2"
     - DESTINATION="OS=8.2,name=iPhone 4s"
     - DESTINATION="OS=8.3,name=iPhone 5"
     - DESTINATION="OS=8.4,name=iPhone 5s"
