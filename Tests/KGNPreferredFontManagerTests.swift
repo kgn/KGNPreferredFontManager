@@ -9,10 +9,27 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
-@available(iOS 8.2, *)
+
 class KGNPreferredFontManagerFontWeightTests: XCTestCase {
-    
+
+    // for some reason @available(iOS 8.2, *) is not working
+    func canRun() -> Bool {
+        if NSProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 9 {
+            return true
+        }
+        if NSProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 8 {
+            if NSProcessInfo.processInfo().operatingSystemVersion.minorVersion >= 2 {
+                return true
+            }
+        }
+        return false
+    }
+
     func testFontWeightHeadline() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightUltraLight
         let textStyle = UIFontTextStyleHeadline
         let preferredFontManager = PreferredFontManager()
@@ -40,6 +57,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightSubheadline() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleSubheadline
         let preferredFontManager = PreferredFontManager()
@@ -67,6 +88,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightBody() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleBody
         let preferredFontManager = PreferredFontManager()
@@ -94,6 +119,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightBodyIncludeAccessibilitySizes() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleBody
         let preferredFontManager = PreferredFontManager()
@@ -121,6 +150,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightCaption1() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightMedium
         let textStyle = UIFontTextStyleCaption1
         let preferredFontManager = PreferredFontManager()
@@ -148,6 +181,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightCaption2() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleCaption2
         let preferredFontManager = PreferredFontManager()
@@ -175,6 +212,10 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
     }
 
     func testFontWeightFootnote() {
+        if !self.canRun() {
+            return
+        }
+
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleFootnote
         let preferredFontManager = PreferredFontManager()
