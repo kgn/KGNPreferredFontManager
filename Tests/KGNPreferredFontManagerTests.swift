@@ -9,9 +9,9 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
+@available(iOS 8.2, *)
 class KGNPreferredFontManagerFontWeightTests: XCTestCase {
-
-    @available(iOS 8.2, *)
+    
     func testFontWeightHeadline() {
         let fontWeight = UIFontWeightUltraLight
         let textStyle = UIFontTextStyleHeadline
@@ -39,7 +39,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightSubheadline() {
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleSubheadline
@@ -67,7 +66,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightBody() {
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleBody
@@ -95,7 +93,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightBodyIncludeAccessibilitySizes() {
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleBody
@@ -123,7 +120,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightCaption1() {
         let fontWeight = UIFontWeightMedium
         let textStyle = UIFontTextStyleCaption1
@@ -151,7 +147,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightCaption2() {
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleCaption2
@@ -179,7 +174,6 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
-    @available(iOS 8.2, *)
     func testFontWeightFootnote() {
         let fontWeight = UIFontWeightRegular
         let textStyle = UIFontTextStyleFootnote

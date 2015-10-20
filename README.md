@@ -101,7 +101,7 @@ button.preferredFontManager = App.PreferredFontManager
 ```
 
 ## Progress:
-- [ ] Tests (working, just need to figure how to exclude `fontWeight` tests on `iOS 8.1`)
+- [ ] Tests (Figure how to exclude `fontWeight` tests on `iOS 8.1`)
 - [X] Travis
 - [X] Badges
 - [X] Carthage
