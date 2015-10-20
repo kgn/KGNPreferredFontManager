@@ -9,7 +9,7 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
-
+@available(iOS 8.2, *)
 class KGNPreferredFontManagerFontWeightTests: XCTestCase {
 
     // for some reason @available(iOS 8.2, *) is not working
@@ -52,7 +52,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
 
         for (sizeCategory, fontSize) in sizes {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
-            XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight+1))
+            XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight))
         }
     }
 
