@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		836E69541BCBA6F50089EAB1 /* KGNPreferredFontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		836E695B1BCBA6F50089EAB1 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; settings = {ASSET_TAGS = (); }; };
+		836E695B1BCBA6F50089EAB1 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; };
 		836E69601BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E695F1BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.swift */; };
-		836E696D1BCBA7D00089EAB1 /* PreferredFontButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696A1BCBA7D00089EAB1 /* PreferredFontButton.swift */; settings = {ASSET_TAGS = (); }; };
-		836E696E1BCBA7D00089EAB1 /* PreferredFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696B1BCBA7D00089EAB1 /* PreferredFontLabel.swift */; settings = {ASSET_TAGS = (); }; };
-		836E696F1BCBA7D00089EAB1 /* PreferredFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696C1BCBA7D00089EAB1 /* PreferredFontManager.swift */; settings = {ASSET_TAGS = (); }; };
+		836E696D1BCBA7D00089EAB1 /* PreferredFontButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696A1BCBA7D00089EAB1 /* PreferredFontButton.swift */; };
+		836E696E1BCBA7D00089EAB1 /* PreferredFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696B1BCBA7D00089EAB1 /* PreferredFontLabel.swift */; };
+		836E696F1BCBA7D00089EAB1 /* PreferredFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E696C1BCBA7D00089EAB1 /* PreferredFontManager.swift */; };
+		83D2AA581BDA05DB004A6F07 /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */; };
+		83D2AA591BDA05DB004A6F07 /* KGNAutoLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83D2AA5A1BDA05DB004A6F07 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; };
+		83D2AA5B1BDA05DB004A6F07 /* KGNPreferredFontManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83E88E5B1BCF5AD20018D5A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E88E5A1BCF5AD20018D5A9 /* AppDelegate.swift */; };
 		83E88E651BCF5AD20018D5A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E88E631BCF5AD20018D5A9 /* LaunchScreen.storyboard */; };
-		83E88E791BCF5B310018D5A9 /* FontTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E88E781BCF5B310018D5A9 /* FontTestViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		83E88E7A1BCF5BC30018D5A9 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; };
-		83E88E7C1BCF5E110018D5A9 /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E88E7B1BCF5E110018D5A9 /* KGNAutoLayout.framework */; };
+		83E88E791BCF5B310018D5A9 /* FontTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E88E781BCF5B310018D5A9 /* FontTestViewController.swift */; };
 		83E88E7F1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM in Copy dSYM */ = {isa = PBXBuildFile; fileRef = 83E88E7E1BCF5E3E0018D5A9 /* KGNAutoLayout.framework.dSYM */; };
 /* End PBXBuildFile section */
 
@@ -29,9 +31,28 @@
 			remoteGlobalIDString = 836E694F1BCBA6F50089EAB1;
 			remoteInfo = KGNPreferredFontManager;
 		};
+		83D2AA5C1BDA05DB004A6F07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 836E69471BCBA6F50089EAB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 836E694F1BCBA6F50089EAB1;
+			remoteInfo = KGNPreferredFontManager;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		83D2AA5E1BDA05DB004A6F07 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				83D2AA5B1BDA05DB004A6F07 /* KGNPreferredFontManager.framework in Embed Frameworks */,
+				83D2AA591BDA05DB004A6F07 /* KGNAutoLayout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83E88E7D1BCF5E280018D5A9 /* Copy dSYM */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E88E7A1BCF5BC30018D5A9 /* KGNPreferredFontManager.framework in Frameworks */,
-				83E88E7C1BCF5E110018D5A9 /* KGNAutoLayout.framework in Frameworks */,
+				83D2AA5A1BDA05DB004A6F07 /* KGNPreferredFontManager.framework in Frameworks */,
+				83D2AA581BDA05DB004A6F07 /* KGNAutoLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,10 +226,12 @@
 				83E88E561BCF5AD20018D5A9 /* Resources */,
 				83E88E7D1BCF5E280018D5A9 /* Copy dSYM */,
 				83E88E801BCF5E520018D5A9 /* ShellScript */,
+				83D2AA5E1BDA05DB004A6F07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				83D2AA5D1BDA05DB004A6F07 /* PBXTargetDependency */,
 			);
 			name = KGNPreferredFontManagerExample;
 			productName = KGNPreferredFontManagerExample;
@@ -333,6 +356,11 @@
 			isa = PBXTargetDependency;
 			target = 836E694F1BCBA6F50089EAB1 /* KGNPreferredFontManager */;
 			targetProxy = 836E695C1BCBA6F50089EAB1 /* PBXContainerItemProxy */;
+		};
+		83D2AA5D1BDA05DB004A6F07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 836E694F1BCBA6F50089EAB1 /* KGNPreferredFontManager */;
+			targetProxy = 83D2AA5C1BDA05DB004A6F07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +525,7 @@
 		83E88E721BCF5AD20018D5A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -512,6 +541,7 @@
 		83E88E731BCF5AD20018D5A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
