@@ -27,6 +27,20 @@ public class PreferredFontButton: UIButton {
         }
     }
 
+    private var hasMovedToSuperview = false
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+
+        // HACK: The buttonType convenience init
+        // cannot be overwritten, so this is a hack
+        // to update the font when the button is
+        // first moved to a superview
+        if !self.hasMovedToSuperview && self.buttonType == .System {
+            self.hasMovedToSuperview = true
+            self.updateFont()
+        }
+    }
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()

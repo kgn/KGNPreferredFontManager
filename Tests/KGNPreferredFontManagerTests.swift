@@ -9,6 +9,19 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
+class KGNPreferredFontManagerPreferredFontButtonTests: XCTestCase {
+
+    func testSystemButton() {
+        let view = UIView()
+        let button = PreferredFontButton(type: .System)
+        view.addSubview(button)
+
+        XCTAssertEqual(button.textStyle, UIFontTextStyleBody)
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(UIFontTextStyleBody))
+    }
+
+}
+
 @available(iOS 8.2, *)
 class KGNPreferredFontManagerFontWeightTests: XCTestCase {
 
