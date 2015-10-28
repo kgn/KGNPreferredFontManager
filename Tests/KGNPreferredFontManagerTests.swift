@@ -9,6 +9,12 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
+// TODO: test PreferredFontLabel
+class KGNPreferredFontManagerPreferredFontLabelTests: XCTestCase {
+
+}
+
+// TODO: test PreferredFontButton
 class KGNPreferredFontManagerPreferredFontButtonTests: XCTestCase {
 
     func testSystemButton() {

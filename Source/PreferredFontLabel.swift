@@ -16,7 +16,7 @@ public class PreferredFontLabel: UILabel {
         }
     }
     
-    public var preferredFontManager: PreferredFontManager? {
+    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.sharedManager() {
         didSet {
             self.updateFont()
         }

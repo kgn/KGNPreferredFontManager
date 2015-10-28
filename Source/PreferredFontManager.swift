@@ -10,8 +10,12 @@ import UIKit
 
 public class PreferredFontManager: NSObject {
 
+    private static let privateSharedManager = PreferredFontManager()
+
     ///  A shared preferred font manager object to use
-    static let sharedManager = PreferredFontManager()
+    public static func sharedManager() -> PreferredFontManager {
+        return self.privateSharedManager
+    }
 
     /**
     Register a font for a given text style with the font name, base size, and increment/decrement values.
