@@ -10,27 +10,9 @@ import UIKit
 import KGNAutoLayout
 import KGNPreferredFontManager
 
-private let FontTestPreferredFontManager: PreferredFontManager = {
-    let preferredFontManager = PreferredFontManager()
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-    preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
-    return preferredFontManager
-}()
-
-class Label: PreferredFontLabel {
-    override func setup() {
-        self.preferredFontManager = FontTestPreferredFontManager
-        super.setup()
-    }
-}
-
 class FontTestViewController: UIViewController {
 
-    private var labels: [Label] = []
+    private var labels: [PreferredFontLabel] = []
     private let fontSizes = [UIContentSizeCategoryExtraSmall, UIContentSizeCategorySmall, UIContentSizeCategoryMedium,
         UIContentSizeCategoryLarge, UIContentSizeCategoryExtraLarge, UIContentSizeCategoryExtraExtraLarge,
         UIContentSizeCategoryExtraExtraExtraLarge, UIContentSizeCategoryAccessibilityMedium,
@@ -44,32 +26,40 @@ class FontTestViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.whiteColor()
 
-        let headline = Label(textStyle: UIFontTextStyleHeadline)
+        // Register the fonts with the shared manager
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+
+        let headline = PreferredFontLabel(textStyle: UIFontTextStyleHeadline)
         headline.text = "Headline"
         self.view.addSubview(headline)
         headline.centerHorizontallyInSuperview()
 
-        let subheadline = Label(textStyle: UIFontTextStyleSubheadline)
+        let subheadline = PreferredFontLabel(textStyle: UIFontTextStyleSubheadline)
         subheadline.text = "Subheadline"
         self.view.addSubview(subheadline)
         subheadline.centerHorizontallyInSuperview()
 
-        let body = Label(textStyle: UIFontTextStyleBody)
+        let body = PreferredFontLabel(textStyle: UIFontTextStyleBody)
         body.text = "Body"
         self.view.addSubview(body)
         body.centerHorizontallyInSuperview()
 
-        let caption1 = Label(textStyle: UIFontTextStyleCaption1)
+        let caption1 = PreferredFontLabel(textStyle: UIFontTextStyleCaption1)
         caption1.text = "Caption1"
         self.view.addSubview(caption1)
         caption1.centerHorizontallyInSuperview()
 
-        let caption2 = Label(textStyle: UIFontTextStyleCaption2)
+        let caption2 = PreferredFontLabel(textStyle: UIFontTextStyleCaption2)
         caption2.text = "Caption2"
         self.view.addSubview(caption2)
         caption2.centerHorizontallyInSuperview()
 
-        let footnote = Label(textStyle: UIFontTextStyleFootnote)
+        let footnote = PreferredFontLabel(textStyle: UIFontTextStyleFootnote)
         footnote.text = "Footnote"
         self.view.addSubview(footnote)
         footnote.centerHorizontallyInSuperview()
