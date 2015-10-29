@@ -8,14 +8,22 @@
 
 import UIKit
 
+/// Subclass of `UILabel` whos font is controlled by
+/// the `textStyle` and `preferredFontManager` properties.
+/// The font used is automaticly updated when the user changes
+/// their accesability text size setting.
 public class PreferredFontLabel: UILabel {
 
+    /// The text style to be used.
+    /// Defaults to `UIFontTextStyleBody`.
     public var textStyle: String = UIFontTextStyleBody {
         didSet {
             self.updateFont()
         }
     }
-    
+
+    /// The preferred font manager object to use.
+    /// Defaults to `PreferredFontManager.sharedManager()`.
     public var preferredFontManager: PreferredFontManager? = PreferredFontManager.sharedManager() {
         didSet {
             self.updateFont()
@@ -32,6 +40,7 @@ public class PreferredFontLabel: UILabel {
         self.setup()
     }
 
+    /// Initialize a `PreferredFontLabel` object with a given textStyle.
     public convenience init(textStyle: String) {
         self.init(frame: CGRectZero)
         self.textStyle = textStyle
@@ -42,12 +51,17 @@ public class PreferredFontLabel: UILabel {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
-    // Use this to override the setup of the label
+    /// This `setup` method is called when initalized.
+    /// Override this method to customize the setup of the button object.
+    /// Be sure to call `super.setup()` in your implementation.
     public func setup() {
         self.updateFont()
         NSNotificationCenter.defaultCenter().addObserver(
             self, selector: "contentSizeCategoryDidChangeNotification:",
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self, selector: "preferredFontManagerDidChangeNotification:",
+            name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 
     private func updateFont() {
@@ -55,6 +69,14 @@ public class PreferredFontLabel: UILabel {
             self.font = font
         } else  {
             self.font = UIFont.preferredFontForTextStyle(self.textStyle)
+        }
+    }
+
+    @objc private func preferredFontManagerDidChangeNotification(notification: NSNotification) {
+        let preferredFontManager = notification.object?[PreferredFontManagerObjectKey] as? PreferredFontManager
+        let textStyle = notification.object?[PreferredFontManagerTextStyleKey] as? String
+        if preferredFontManager == self.preferredFontManager && textStyle == self.textStyle {
+            self.updateFont()
         }
     }
 

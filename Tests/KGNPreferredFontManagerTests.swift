@@ -9,12 +9,6 @@
 import XCTest
 @testable import KGNPreferredFontManager
 
-// TODO: test PreferredFontLabel
-class KGNPreferredFontManagerPreferredFontLabelTests: XCTestCase {
-
-}
-
-// TODO: test PreferredFontButton
 class KGNPreferredFontManagerPreferredFontButtonTests: XCTestCase {
 
     func testSystemButton() {
@@ -75,6 +69,40 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
+    func testLabelHeadline() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightUltraLight
+        let textStyle = UIFontTextStyleHeadline
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 28, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonHeadline() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightUltraLight
+        let textStyle = UIFontTextStyleHeadline
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 28, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
     func testFontWeightSubheadline() {
         if !self.canRun() {
             return
@@ -104,6 +132,40 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight))
         }
+    }
+
+    func testLabelSubheadline() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightMedium
+        let textStyle = UIFontTextStyleSubheadline
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 22, increment: 2, decrement: 1)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonSubheadline() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightMedium
+        let textStyle = UIFontTextStyleSubheadline
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 22, increment: 2, decrement: 1)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
 
     func testFontWeightBody() {
@@ -168,6 +230,40 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
+    func testLabelBody() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleBody
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 2, decrement: 1)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonBody() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleBody
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 2, decrement: 1)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
     func testFontWeightCaption1() {
         if !self.canRun() {
             return
@@ -197,6 +293,40 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight))
         }
+    }
+
+    func testLabelCaption1() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightMedium
+        let textStyle = UIFontTextStyleCaption1
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 15, increment: 2, decrement: 1)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonCaption1() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightMedium
+        let textStyle = UIFontTextStyleCaption1
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 15, increment: 2, decrement: 1)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
 
     func testFontWeightCaption2() {
@@ -230,6 +360,40 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         }
     }
 
+    func testLabelCaption2() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleCaption2
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 13, increment: 2, decrement: 1)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonCaption2() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleCaption2
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 13, increment: 2, decrement: 1)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
     func testFontWeightFootnote() {
         if !self.canRun() {
             return
@@ -260,13 +424,47 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             XCTAssertEqual(extraSmallPreferredFont, UIFont.systemFontOfSize(fontSize, weight: fontWeight))
         }
     }
+
+    func testLabelFootnote() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleFootnote
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 11, increment: 2, decrement: 1)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonFootnote() {
+        if !self.canRun() {
+            return
+        }
+
+        let fontWeight = UIFontWeightRegular
+        let textStyle = UIFontTextStyleFootnote
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontWeight: fontWeight, baseFontSize: 11, increment: 2, decrement: 1)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
     
 }
 
 class KGNPreferredFontManagerFontNameTests: XCTestCase {
 
     func testFontWeightHeadline() {
-        let fontName = "AvenirNext-Light"
+        let fontName = "AvenirNext-UltraLight"
         let textStyle = UIFontTextStyleHeadline
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 28, increment: 2, decrement: 2)
@@ -290,6 +488,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont(name: fontName, size: fontSize))
         }
+    }
+
+    func testLabelHeadline() {
+        let fontName = "AvenirNext-UltraLight"
+        let textStyle = UIFontTextStyleHeadline
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 28, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonHeadline() {
+        let fontName = "AvenirNext-UltraLight"
+        let textStyle = UIFontTextStyleHeadline
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 28, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
 
     func testFontWeightSubheadline() {
@@ -317,6 +541,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont(name: fontName, size: fontSize))
         }
+    }
+
+    func testLabelSubheadline() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleSubheadline
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 22, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonSubheadline() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleSubheadline
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 22, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
 
     func testFontWeightBody() {
@@ -373,6 +623,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         }
     }
 
+    func testLabelBody() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleBody
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 17, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonBody() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleBody
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 17, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
     func testFontWeightCaption1() {
         let fontName = "AvenirNext-Medium"
         let textStyle = UIFontTextStyleCaption1
@@ -398,6 +674,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont(name: fontName, size: fontSize))
         }
+    }
+
+    func testLabelCaption1() {
+        let fontName = "AvenirNext-Medium"
+        let textStyle = UIFontTextStyleCaption1
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 15, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonCaption1() {
+        let fontName = "AvenirNext-Medium"
+        let textStyle = UIFontTextStyleCaption1
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 15, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
 
     func testFontWeightCaption2() {
@@ -427,6 +729,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         }
     }
 
+    func testLabelCaption2() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleCaption2
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 13, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonCaption2() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleCaption2
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 13, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
     func testFontWeightFootnote() {
         let fontName = "AvenirNext-Regular"
         let textStyle = UIFontTextStyleFootnote
@@ -452,6 +780,32 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
             let extraSmallPreferredFont = preferredFontManager.preferredFontForTextStyle(textStyle, sizeCategory: sizeCategory)
             XCTAssertEqual(extraSmallPreferredFont, UIFont(name: fontName, size: fontSize))
         }
+    }
+
+    func testLabelFootnote() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleFootnote
+
+        let label = PreferredFontLabel(textStyle: textStyle)
+        label.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(label.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        label.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 11, increment: 2, decrement: 2)
+
+        XCTAssertEqual(label.font, label.preferredFontManager?.preferredFontForTextStyle(textStyle))
+    }
+
+    func testButtonFootnote() {
+        let fontName = "AvenirNext-Regular"
+        let textStyle = UIFontTextStyleFootnote
+
+        let button = PreferredFontButton(textStyle: textStyle)
+        button.preferredFontManager = PreferredFontManager()
+        XCTAssertEqual(button.titleLabel?.font, UIFont.preferredFontForTextStyle(textStyle))
+
+        button.preferredFontManager?.registerFontsForTextStyle(textStyle, fontName: fontName, baseFontSize: 11, increment: 2, decrement: 2)
+
+        XCTAssertEqual(button.titleLabel?.font, button.preferredFontManager?.preferredFontForTextStyle(textStyle))
     }
     
 }

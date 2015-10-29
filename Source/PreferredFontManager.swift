@@ -8,6 +8,10 @@
 
 import UIKit
 
+internal let PreferredFontManagerDidChangeNotification = "PreferredFontManagerDidChangeNotification"
+internal let PreferredFontManagerObjectKey = "PreferredFontManagerObjectKey"
+internal let PreferredFontManagerTextStyleKey = "PreferredFontManagerTextStyleKey"
+
 public class PreferredFontManager: NSObject {
 
     private static let privateSharedManager = PreferredFontManager()
@@ -55,9 +59,12 @@ public class PreferredFontManager: NSObject {
     - Parameter sizeCategory: An optional sizeCategory, by default the value is retrieved from `UIApplication.sharedApplication().preferredContentSizeCategory`.
     - Returns: The font object.
     */
-    public func preferredFontForTextStyle(style: String, sizeCategory: String? = nil) -> UIFont? {
-        let sizeCategory = sizeCategory ?? UIApplication.sharedApplication().preferredContentSizeCategory
-        if let sizes = self.fonts[style], font = sizes[sizeCategory] {
+    public func preferredFontForTextStyle(style: String, var sizeCategory: String? = nil) -> UIFont? {
+        sizeCategory = sizeCategory ?? UIApplication.sharedApplication().preferredContentSizeCategory
+        if sizeCategory == nil || sizeCategory == "" {
+            sizeCategory = UIContentSizeCategoryLarge
+        }
+        if let sizes = self.fonts[style], font = sizes[sizeCategory!] {
             return font
         }
         return nil
@@ -117,7 +124,10 @@ public class PreferredFontManager: NSObject {
                 }
             }
         }
-        
+
         self.fonts[style] = fonts
+
+        let object = [PreferredFontManagerObjectKey: self, PreferredFontManagerTextStyleKey: style]
+        NSNotificationCenter.defaultCenter().postNotificationName(PreferredFontManagerDidChangeNotification, object: object)
     }
 }
