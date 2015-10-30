@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833C2C1F1BE311080042C628 /* PreferredFontTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C2C1E1BE311080042C628 /* PreferredFontTextField.swift */; };
 		836E69541BCBA6F50089EAB1 /* KGNPreferredFontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		836E695B1BCBA6F50089EAB1 /* KGNPreferredFontManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */; };
 		836E69601BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E695F1BCBA6F50089EAB1 /* KGNPreferredFontManagerTests.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		833C2C1E1BE311080042C628 /* PreferredFontTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredFontTextField.swift; sourceTree = "<group>"; };
 		836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNPreferredFontManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNPreferredFontManager.h; sourceTree = "<group>"; };
 		836E69551BCBA6F50089EAB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				836E696A1BCBA7D00089EAB1 /* PreferredFontButton.swift */,
 				836E696B1BCBA7D00089EAB1 /* PreferredFontLabel.swift */,
+				833C2C1E1BE311080042C628 /* PreferredFontTextField.swift */,
 				836E696C1BCBA7D00089EAB1 /* PreferredFontManager.swift */,
 				836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */,
 				836E69551BCBA6F50089EAB1 /* Info.plist */,
@@ -328,6 +331,7 @@
 			files = (
 				836E696D1BCBA7D00089EAB1 /* PreferredFontButton.swift in Sources */,
 				836E696E1BCBA7D00089EAB1 /* PreferredFontLabel.swift in Sources */,
+				833C2C1F1BE311080042C628 /* PreferredFontTextField.swift in Sources */,
 				836E696F1BCBA7D00089EAB1 /* PreferredFontManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

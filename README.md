@@ -52,33 +52,32 @@ There are two versions of this method. One takes `fontWeight: CGFloat`, which is
 Check out the Example app provided to see this in action.
 
 ``` Swift
-let preferredFontManager = PreferredFontManager()
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
 ```
 
 #### fontName
 
 ``` Swift
-let preferredFontManager = PreferredFontManager()
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: "AvenirNext-Light", baseFontSize: 28, increment: 2, decrement: 2)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: "AvenirNext-Regular", baseFontSize: 22, increment: 2, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleBody, fontName: "AvenirNext-Regular", baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: "AvenirNext-Medium", baseFontSize: 15, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: "AvenirNext-Regular", baseFontSize: 13, increment: 1, decrement: 1)
-preferredFontManager.registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: "AvenirNext-Regular", baseFontSize: 11, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: "AvenirNext-Light", baseFontSize: 28, increment: 2, decrement: 2)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: "AvenirNext-Regular", baseFontSize: 22, increment: 2, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontName: "AvenirNext-Regular", baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: "AvenirNext-Medium", baseFontSize: 15, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: "AvenirNext-Regular", baseFontSize: 13, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: "AvenirNext-Regular", baseFontSize: 11, increment: 1, decrement: 1)
 ```
 
-### PreferredFontButton & PreferredFontLabel
-`PreferredFontButton` and `PreferredFontLabel` are subclasses of `UIButton` and `UILabel` respectively but they incorporate a `PreferredFontManager` and subscribe to `UIContentSizeCategoryDidChangeNotification` so the font used it automatically updated for the selected accessibility font size selected buy the user.
+### PreferredFontButton, PreferredFontLabel & PreferredFontTextField
+`PreferredFontButton`, `PreferredFontLabel` and `PreferredFontTextField` are subclasses of `UIButton`, `UILabel` and `UITextField`respectively but they incorporate a `PreferredFontManager` and subscribe to `UIContentSizeCategoryDidChangeNotification` so the font used it automatically updated for the selected accessibility font size selected buy the user.
 
 ``` Swift
 let label = PreferredFontLabel()
 let button = PreferredFontButton()
+let textField = PreferredFontTextField()
 ```
 
 #### Property: textStyle
@@ -87,18 +86,11 @@ By default the `UIFontTextStyleBody` is used, but this can be customized and cha
 ``` Swift
 let label = PreferredFontLabel(textStyle: UIFontTextStyleHeadline)
 let button = PreferredFontButton(textStyle: UIFontTextStyleHeadline)
+let textField = PreferredFontTextField(textStyle: UIFontTextStyleHeadline)
 ```
 
 #### Property: preferredFontManager
-By default the `UIFont.preferredFontForTextStyle` is used to determine which font to use, but this can be customized by setting the `preferredFontManager` property. It is recommended to have one `PreferredFontManager` and use it for all labels, buttons and other text items.
-
-``` Swift
-let label = PreferredFontLabel()
-label.preferredFontManager = App.PreferredFontManager
-
-let button = PreferredFontButton()
-button.preferredFontManager = App.PreferredFontManager
-```
+By default this property is set to `PreferredFontManager.sharedManager()`, if there is not a registered text style `UIFont.preferredFontForTextStyle` is used instead. This property can also be set to a custom `PreferredFontManager` object.
 
 ## Progress:
 - [X] Tests
