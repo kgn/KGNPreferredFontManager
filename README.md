@@ -9,6 +9,7 @@ Helper class to registering custom fonts for `UIFontTextStyle`.
 [![Build Status](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
 
 [![Build Status](https://travis-ci.org/kgn/KGNPreferredFontManager.svg)](https://travis-ci.org/kgn/KGNPreferredFontManager)
+[![Test Coverage](http://img.shields.io/badge/Tests-79%25-yellow.svg)]()
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-Compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/KGNPreferredFontManager.svg)](https://cocoapods.org/pods/KGNPreferredFontManager)
 [![CocoaPods Platforms](https://img.shields.io/cocoapods/p/KGNPreferredFontManager.svg)](https://cocoapods.org/pods/KGNPreferredFontManager)
