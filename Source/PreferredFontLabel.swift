@@ -42,7 +42,7 @@ public class PreferredFontLabel: UILabel {
 
     /// Initialize a `PreferredFontLabel` object with a given textStyle.
     public convenience init(textStyle: String) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         self.textStyle = textStyle
         self.updateFont()
     }
