@@ -57,10 +57,10 @@ public class PreferredFontTextField: UITextField {
     public func setup() {
         self.updateFont()
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: "contentSizeCategoryDidChangeNotification:",
+            self, selector: #selector(PreferredFontTextField.contentSizeCategoryDidChangeNotification(_:)),
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: "preferredFontManagerDidChangeNotification:",
+            self, selector: #selector(PreferredFontTextField.preferredFontManagerDidChangeNotification(_:)),
             name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 

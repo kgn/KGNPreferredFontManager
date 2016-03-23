@@ -59,12 +59,12 @@ public class PreferredFontManager: NSObject {
     - Parameter sizeCategory: An optional sizeCategory, by default the value is retrieved from `UIApplication.sharedApplication().preferredContentSizeCategory`.
     - Returns: The font object.
     */
-    public func preferredFontForTextStyle(style: String, var sizeCategory: String? = nil) -> UIFont? {
-        sizeCategory = sizeCategory ?? UIApplication.sharedApplication().preferredContentSizeCategory
-        if sizeCategory == nil || sizeCategory == "" {
-            sizeCategory = UIContentSizeCategoryLarge
+    public func preferredFontForTextStyle(style: String, sizeCategory: String? = nil) -> UIFont? {
+        var innerSizeCategory: String? = sizeCategory ?? UIApplication.sharedApplication().preferredContentSizeCategory
+        if innerSizeCategory == nil || innerSizeCategory == "" {
+            innerSizeCategory = UIContentSizeCategoryLarge
         }
-        if let sizes = self.fonts[style], font = sizes[sizeCategory!] {
+        if let sizes = self.fonts[style], font = sizes[innerSizeCategory!] {
             return font
         }
         return nil

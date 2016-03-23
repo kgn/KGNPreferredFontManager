@@ -72,10 +72,10 @@ public class PreferredFontButton: UIButton {
     public func setup() {
         self.updateFont()
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: "contentSizeCategoryDidChangeNotification:",
+            self, selector: #selector(PreferredFontButton.contentSizeCategoryDidChangeNotification(_:)),
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: "preferredFontManagerDidChangeNotification:",
+            self, selector: #selector(PreferredFontButton.preferredFontManagerDidChangeNotification(_:)),
             name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 
