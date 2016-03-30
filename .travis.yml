@@ -1,14 +1,10 @@
 language: objective-c
 osx_image: xcode7.3
 
-xcode_sdk: iphonesimulator
-xcode_project: KGNPreferredFontManager.xcodeproj
-xcode_scheme: KGNPreferredFontManager
-
-# env:
-#   global:
-#     - PROJECT=KGNPreferredFontManager
-#     - SCHEME=$PROJECT
+env:
+  global:
+    - PROJECT=KGNPreferredFontManager
+    - SCHEME=$PROJECT
   # matrix:
   #   - DESTINATION="OS=8.1,name=iPhone 4s"
   #   - DESTINATION="OS=8.2,name=iPhone 5"
@@ -22,8 +18,8 @@ xcode_scheme: KGNPreferredFontManager
   #   - DESTINATION="OS=9.3,name=iPhone 6s"
   #   - DESTINATION="OS=9.3,name=iPhone 6s Plus"
 
-# script:
-#   - xcodebuild test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
+script:
+  - xcodebuild test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
 
 before_install:
   - brew update
@@ -34,14 +30,14 @@ before_install:
 
 before_deploy:
   - carthage build --no-skip-current
-  - carthage archive KGNPreferredFontManager
+  - carthage archive $PROJECT
 
 deploy:
   provider: releases
   api_key:
     secure: qHiRudABhP48pxBBuLKVeXvXDwqQnEuJ7BzTECGv6qw1ZLp9C5dZFSkgPlANDeogItuqzYfKRdIeVpRXbMQse4WNQYksiOau+/hBKoxYX/ty7PLyVYoFLCBgiyDYsC/8jrZtimAcsH9Xgk2jqljus5D0mtjRP1yXVp7IiwOe0zKXSkiLq6kZiYDMNcXhd4SeDj1vwrVJgDyiEK5FelGGDdDrJKmJzn/XikZBDaxiIzhSXREmAD0O7JgOJsnkD7OQP7ZVo0/PuUalbvxDocnqjBI75clNTijsUkr+O6iK30tmGFBOIV0DEXbfHbNr8rrbNBwUCtjWxkIk2KDIJDAgwFD3aMBk1MUJ09Yr/6x67we8AeDe2KaHlV3JB1wSMO13/nGhO1SxvY3/UPfB6TWiJF9KlCtu9z/tzfLVKCO0ukJ5DaaGAQwdEGWFv/UYLXg0ldHbhOoQcoydX0hK1VCst3hCUGSPocgJc/J77dTyuMlgqE+/B61YTwJeXeHP/76+4ZX1E4X9COfl+kB9VwbrNcEJw0SdpsPEiCLA+DOZMr+t84FxSiwp+Nu205AARJsBprOWzA0mV+zUYg2js52qH129rBzjr57VGaXgC8xsEeuLc/xz4ef9QBmQfe8jZv7ISRnh+JS3YIvr1d/hbAXvlJ5oM3aI7aRA9RxnBQQZHc4=
-  file: KGNPreferredFontManager.framework.zip
+  file: $PROJECT.framework.zip
   skip_cleanup: true
   on:
-    repo: kgn/KGNPreferredFontManager
+    repo: kgn/$PROJECT
     tags: true
