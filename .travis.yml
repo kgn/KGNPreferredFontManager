@@ -29,8 +29,8 @@ before_install:
   - brew update
   - brew install carthage
 
-before_script:
-  - carthage bootstrap
+# before_script:
+#   - carthage bootstrap
 
 before_deploy:
   - carthage build --no-skip-current
