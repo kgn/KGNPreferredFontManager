@@ -8,6 +8,11 @@
 
 import UIKit
 
+private extension Selector {
+    static let contentSizeCategoryDidChange = #selector(PreferredFontButton.contentSizeCategoryDidChangeNotification(_:))
+    static let preferredFontManagerDidChange = #selector(PreferredFontButton.preferredFontManagerDidChangeNotification(_:))
+}
+
 /// Subclass of `UIButton` whos font is controlled by
 /// the `textStyle` and `preferredFontManager` properties.
 /// The font used is automaticly updated when the user changes
@@ -72,10 +77,10 @@ public class PreferredFontButton: UIButton {
     public func setup() {
         self.updateFont()
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: #selector(PreferredFontButton.contentSizeCategoryDidChangeNotification(_:)),
+            self, selector: .contentSizeCategoryDidChange,
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: #selector(PreferredFontButton.preferredFontManagerDidChangeNotification(_:)),
+            self, selector: .preferredFontManagerDidChange,
             name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+private extension Selector {
+    static let contentSizeCategoryDidChange = #selector(PreferredFontLabel.contentSizeCategoryDidChangeNotification(_:))
+    static let preferredFontManagerDidChange = #selector(PreferredFontLabel.preferredFontManagerDidChangeNotification(_:))
+}
+
 /// Subclass of `UILabel` whos font is controlled by
 /// the `textStyle` and `preferredFontManager` properties.
 /// The font used is automaticly updated when the user changes
@@ -57,10 +62,10 @@ public class PreferredFontLabel: UILabel {
     public func setup() {
         self.updateFont()
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: #selector(PreferredFontLabel.contentSizeCategoryDidChangeNotification(_:)),
+            self, selector: .contentSizeCategoryDidChange,
             name: UIContentSizeCategoryDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(
-            self, selector: #selector(PreferredFontLabel.preferredFontManagerDidChangeNotification(_:)),
+            self, selector: .preferredFontManagerDidChange,
             name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 

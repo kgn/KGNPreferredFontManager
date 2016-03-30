@@ -3,8 +3,7 @@
 Helper class to registering custom fonts for `UIFontTextStyle`. 
 
 [![iOS 8.0+](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
-[![Xcode 7.1](http://img.shields.io/badge/Xcode-7.0-blue.svg)]()
-[![Swift 2.0](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
+[![Swift 2.0+](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
 [![Release](https://img.shields.io/github/release/kgn/KGNPreferredFontManager.svg)](/releases)
 [![Build Status](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
 
@@ -101,3 +100,6 @@ By default this property is set to `PreferredFontManager.sharedManager()`, if th
 - [X] CocoaPods
 - [X] Description
 - [X] Documentation
+- [ ] AppleTV
+- [ ] AppleWatch
+- [ ] Prebuilt Frameworks
