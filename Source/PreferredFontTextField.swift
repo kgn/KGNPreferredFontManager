@@ -9,8 +9,8 @@
 import UIKit
 
 private extension Selector {
-    static let contentSizeCategoryDidChange = #selector(PreferredFontTextField.contentSizeCategoryDidChangeNotification(_:))
-    static let preferredFontManagerDidChange = #selector(PreferredFontTextField.preferredFontManagerDidChangeNotification(_:))
+    static let contentSizeCategoryDidChange = #selector(PreferredFontTextField.contentSizeCategoryDidChange(notification:))
+    static let preferredFontManagerDidChange = #selector(PreferredFontTextField.preferredFontManagerDidChange(notification:))
 }
 
 /// Subclass of `UITextField` whos font is controlled by
@@ -53,7 +53,7 @@ public class PreferredFontTextField: UITextField {
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default().removeObserver(self)
     }
 
     /// This `setup` method is called when initalized.
@@ -61,23 +61,23 @@ public class PreferredFontTextField: UITextField {
     /// Be sure to call `super.setup()` in your implementation.
     public func setup() {
         self.updateFont()
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default().addObserver(
             self, selector: .contentSizeCategoryDidChange,
-            name: UIContentSizeCategoryDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(
+            name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+        NotificationCenter.default().addObserver(
             self, selector: .preferredFontManagerDidChange,
             name: PreferredFontManagerDidChangeNotification, object: nil)
     }
 
     private func updateFont() {
-        if let font = self.preferredFontManager?.preferredFontForTextStyle(self.textStyle) {
+        if let font = self.preferredFontManager?.preferredFont(forTextStyle: self.textStyle) {
             self.font = font
         } else  {
-            self.font = UIFont.preferredFontForTextStyle(self.textStyle)
+            self.font = UIFont.preferredFont(forTextStyle: self.textStyle)
         }
     }
 
-    @objc private func preferredFontManagerDidChangeNotification(notification: NSNotification) {
+    @objc private func preferredFontManagerDidChange(notification: Notification) {
         let preferredFontManager = notification.object?[PreferredFontManagerObjectKey] as? PreferredFontManager
         let textStyle = notification.object?[PreferredFontManagerTextStyleKey] as? String
         if preferredFontManager == self.preferredFontManager && textStyle == self.textStyle {
@@ -85,7 +85,7 @@ public class PreferredFontTextField: UITextField {
         }
     }
 
-    @objc private func contentSizeCategoryDidChangeNotification(notification: NSNotification) {
+    @objc private func contentSizeCategoryDidChange(notification: Notification) {
         self.updateFont()
     }
 

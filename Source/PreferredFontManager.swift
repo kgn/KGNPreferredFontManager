@@ -32,8 +32,8 @@ public class PreferredFontManager: NSObject {
     - Parameter includeAccessibilitySizes: Defaults to false, meaning that all of the additional accesability size categories will used the same font size as the `UIContentSizeCategoryExtraExtraExtraLarge` size category.
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
-    public func registerFontsForTextStyle(style: String, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
-        self.registerFontsForTextStyle(style, fontName: fontName, fontWeight: nil, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
+    public func registerFonts(forTextStyle style: String, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+        self.registerFonts(forTextStyle: style, fontName: fontName, fontWeight: nil, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
 
     /**
@@ -48,8 +48,8 @@ public class PreferredFontManager: NSObject {
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
     @available(iOS 8.2, *)
-    public func registerFontsForTextStyle(style: String, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
-        self.registerFontsForTextStyle(style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
+    public func registerFonts(forTextStyle style: String, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+        self.registerFonts(forTextStyle: style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
 
     /**
@@ -59,8 +59,8 @@ public class PreferredFontManager: NSObject {
     - Parameter sizeCategory: An optional sizeCategory, by default the value is retrieved from `UIApplication.sharedApplication().preferredContentSizeCategory`.
     - Returns: The font object.
     */
-    public func preferredFontForTextStyle(style: String, sizeCategory: String? = nil) -> UIFont? {
-        var innerSizeCategory: String? = sizeCategory ?? UIApplication.sharedApplication().preferredContentSizeCategory
+    public func preferredFont(forTextStyle style: String, sizeCategory: String? = nil) -> UIFont? {
+        var innerSizeCategory: String? = sizeCategory ?? UIApplication.shared().preferredContentSizeCategory
         if innerSizeCategory == nil || innerSizeCategory == "" {
             innerSizeCategory = UIContentSizeCategoryLarge
         }
@@ -81,11 +81,11 @@ public class PreferredFontManager: NSObject {
         UIContentSizeCategoryAccessibilityExtraExtraExtraLarge]
 
     // TODO: make this lazy
-    private func registerFontsForTextStyle(style: String, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    private func registerFonts(forTextStyle style: String, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         var fonts: [String: UIFont?] = [:]
         let middleIndex = floor(CGFloat(self.fontSizes.count)/2.0)
 
-        for (index, fontSize) in self.fontSizes.enumerate() {
+        for (index, fontSize) in self.fontSizes.enumerated() {
             var size = CGFloat(index)-middleIndex
             if size < 0 {
                 size *= decrement
@@ -98,7 +98,7 @@ public class PreferredFontManager: NSObject {
                 fonts[fontSize] = UIFont(name: fontName!, size: size)
             } else if fontWeight != nil {
                 if #available(iOS 8.2, *) {
-                    fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                    fonts[fontSize] = UIFont.systemFont(ofSize: size, weight: fontWeight!)
                 } else {
                     assert(true, "Only supported on iOS 8.2+")
                     return
@@ -106,7 +106,7 @@ public class PreferredFontManager: NSObject {
             }
         }
 
-        for (index, fontSize) in self.accessibilityFontSizes.enumerate() {
+        for (index, fontSize) in self.accessibilityFontSizes.enumerated() {
             var offset = -1
             if includeAccessibilitySizes {
                 offset = index
@@ -117,7 +117,7 @@ public class PreferredFontManager: NSObject {
                 fonts[fontSize] = UIFont(name: fontName!, size: size)
             } else if fontWeight != nil {
                 if #available(iOS 8.2, *) {
-                    fonts[fontSize] = UIFont.systemFontOfSize(size, weight: fontWeight!)
+                    fonts[fontSize] = UIFont.systemFont(ofSize: size, weight: fontWeight!)
                 } else {
                     assert(true, "Only supported on iOS 8.2+")
                     return
@@ -128,6 +128,6 @@ public class PreferredFontManager: NSObject {
         self.fonts[style] = fonts
 
         let object = [PreferredFontManagerObjectKey: self, PreferredFontManagerTextStyleKey: style]
-        NSNotificationCenter.defaultCenter().postNotificationName(PreferredFontManagerDidChangeNotification, object: object)
+        NotificationCenter.default().post(name: Notification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: object)
     }
 }

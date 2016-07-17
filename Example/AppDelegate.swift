@@ -11,9 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    lazy var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
+    // Cannot be lazy in the current version of swift
+    var window: UIWindow? = UIWindow(frame: UIScreen.main().bounds)
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window?.rootViewController = FontTestViewController()
         self.window?.makeKeyAndVisible()
         return true

@@ -10,6 +10,10 @@ import UIKit
 import KGNAutoLayout
 import KGNPreferredFontManager
 
+private extension Selector {
+    static let sliderAction = #selector(FontTestViewController.sliderAction(sender:))
+}
+
 class FontTestViewController: UIViewController {
 
     private var labels: [PreferredFontLabel] = []
@@ -24,15 +28,15 @@ class FontTestViewController: UIViewController {
 
         let largePadding: CGFloat = 20
 
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white()
 
         // Register the fonts with the shared manager
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
 
         let headline = PreferredFontLabel(textStyle: UIFontTextStyleHeadline)
         headline.text = "Headline"
@@ -65,24 +69,24 @@ class FontTestViewController: UIViewController {
         footnote.centerHorizontallyInSuperview()
 
         self.labels = [headline, subheadline, body, caption1, caption2, footnote]
-        self.view.centerViewsVertically(labels, separation: largePadding)
+        self.view.centerVertically(views: labels, separation: largePadding)
 
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = Float(fontSizes.count-1)
-        if let currentIndex = self.fontSizes.indexOf(UIApplication.sharedApplication().preferredContentSizeCategory) {
+        if let currentIndex = self.fontSizes.index(of: UIApplication.shared().preferredContentSizeCategory) {
             slider.value = Float(currentIndex)
         }
-        slider.addTarget(self, action: "sliderAction:", forControlEvents: .ValueChanged)
+        slider.addTarget(self, action: .sliderAction, for: .valueChanged)
         self.view.addSubview(slider)
-        slider.pinToBottomEdgeOfSuperview(largePadding)
-        slider.pinToSideEdgesOfSuperview(largePadding)
+        slider.pinToBottomEdgeOfSuperview(offset: largePadding)
+        slider.pinToSideEdgesOfSuperview(offset: largePadding)
     }
 
     @objc private func sliderAction(sender: UISlider) {
         let index = Int(round(sender.value))
         for label in self.labels {
-            if let font = label.preferredFontManager?.preferredFontForTextStyle(label.textStyle, sizeCategory: self.fontSizes[index]) {
+            if let font = label.preferredFontManager?.preferredFont(forTextStyle: label.textStyle, sizeCategory: self.fontSizes[index]) {
                 label.font = font
             }
         }
