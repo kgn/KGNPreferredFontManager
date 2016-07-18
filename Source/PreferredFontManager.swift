@@ -128,6 +128,6 @@ public class PreferredFontManager: NSObject {
         self.fonts[style] = fonts
 
         let object = [PreferredFontManagerObjectKey: self, PreferredFontManagerTextStyleKey: style]
-        NotificationCenter.default().post(name: Notification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: object)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: object)
     }
 }

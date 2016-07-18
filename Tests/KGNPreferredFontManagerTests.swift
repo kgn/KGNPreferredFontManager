@@ -27,11 +27,11 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
 
     // for some reason @available(iOS 8.2, *) is not working
     func canRun() -> Bool {
-        if ProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 9 {
+        if ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 9 {
             return true
         }
-        if ProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 8 {
-            if ProcessInfo.processInfo().operatingSystemVersion.minorVersion >= 2 {
+        if ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 8 {
+            if ProcessInfo.processInfo.operatingSystemVersion.minorVersion >= 2 {
                 return true
             }
         }

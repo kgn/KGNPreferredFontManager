@@ -53,7 +53,7 @@ public class PreferredFontLabel: UILabel {
     }
 
     deinit {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     /// This `setup` method is called when initalized.
@@ -61,12 +61,12 @@ public class PreferredFontLabel: UILabel {
     /// Be sure to call `super.setup()` in your implementation.
     public func setup() {
         self.updateFont()
-        NotificationCenter.default().addObserver(
+        NotificationCenter.default.addObserver(
             self, selector: .contentSizeCategoryDidChange,
-            name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
-        NotificationCenter.default().addObserver(
+            name: .UIContentSizeCategoryDidChange, object: nil)
+        NotificationCenter.default.addObserver(
             self, selector: .preferredFontManagerDidChange,
-            name: PreferredFontManagerDidChangeNotification, object: nil)
+            name: NSNotification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: nil)
     }
 
     private func updateFont() {
