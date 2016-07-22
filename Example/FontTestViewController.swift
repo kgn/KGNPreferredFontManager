@@ -17,11 +17,11 @@ private extension Selector {
 class FontTestViewController: UIViewController {
 
     private var labels: [PreferredFontLabel] = []
-    private let fontSizes = [UIContentSizeCategoryExtraSmall, UIContentSizeCategorySmall, UIContentSizeCategoryMedium,
-        UIContentSizeCategoryLarge, UIContentSizeCategoryExtraLarge, UIContentSizeCategoryExtraExtraLarge,
-        UIContentSizeCategoryExtraExtraExtraLarge, UIContentSizeCategoryAccessibilityMedium,
-        UIContentSizeCategoryAccessibilityLarge, UIContentSizeCategoryAccessibilityExtraLarge,
-        UIContentSizeCategoryAccessibilityExtraExtraLarge, UIContentSizeCategoryAccessibilityExtraExtraExtraLarge]
+    private let fontSizes = [ContentSizeCategory.extraSmall, ContentSizeCategory.small, ContentSizeCategory.medium,
+        ContentSizeCategory.large, ContentSizeCategory.extraLarge, ContentSizeCategory.extraExtraLarge,
+        ContentSizeCategory.extraExtraExtraLarge, ContentSizeCategory.accessibilityMedium,
+        ContentSizeCategory.accessibilityLarge, ContentSizeCategory.accessibilityExtraLarge,
+        ContentSizeCategory.accessibilityExtraExtraLarge, ContentSizeCategory.accessibilityExtraExtraExtraLarge]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class FontTestViewController: UIViewController {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = Float(fontSizes.count-1)
-        if let currentIndex = self.fontSizes.index(of: UIApplication.shared().preferredContentSizeCategory) {
+        if let currentIndex = self.fontSizes.index(of: ContentSizeCategory.preferredContentSizeCategory) {
             slider.value = Float(currentIndex)
         }
         slider.addTarget(self, action: .sliderAction, for: .valueChanged)

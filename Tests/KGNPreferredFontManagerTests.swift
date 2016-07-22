@@ -49,18 +49,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 28, increment: 2, decrement: 2)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 22,
-            UIContentSizeCategorySmall: 24,
-            UIContentSizeCategoryMedium: 26,
-            UIContentSizeCategoryLarge: 28,
-            UIContentSizeCategoryExtraLarge: 30,
-            UIContentSizeCategoryExtraExtraLarge: 32,
-            UIContentSizeCategoryExtraExtraExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityMedium: 34,
-            UIContentSizeCategoryAccessibilityLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 34
+            ContentSizeCategory.extraSmall: 22,
+            ContentSizeCategory.small: 24,
+            ContentSizeCategory.medium: 26,
+            ContentSizeCategory.large: 28,
+            ContentSizeCategory.extraLarge: 30,
+            ContentSizeCategory.extraExtraLarge: 32,
+            ContentSizeCategory.extraExtraExtraLarge: 34,
+            ContentSizeCategory.accessibilityMedium: 34,
+            ContentSizeCategory.accessibilityLarge: 34,
+            ContentSizeCategory.accessibilityExtraLarge: 34,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 34,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 34
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -131,18 +131,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 22, increment: 2, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 19,
-            UIContentSizeCategorySmall: 20,
-            UIContentSizeCategoryMedium: 21,
-            UIContentSizeCategoryLarge: 22,
-            UIContentSizeCategoryExtraLarge: 24,
-            UIContentSizeCategoryExtraExtraLarge: 26,
-            UIContentSizeCategoryExtraExtraExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityMedium: 28,
-            UIContentSizeCategoryAccessibilityLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 28
+            ContentSizeCategory.extraSmall: 19,
+            ContentSizeCategory.small: 20,
+            ContentSizeCategory.medium: 21,
+            ContentSizeCategory.large: 22,
+            ContentSizeCategory.extraLarge: 24,
+            ContentSizeCategory.extraExtraLarge: 26,
+            ContentSizeCategory.extraExtraExtraLarge: 28,
+            ContentSizeCategory.accessibilityMedium: 28,
+            ContentSizeCategory.accessibilityLarge: 28,
+            ContentSizeCategory.accessibilityExtraLarge: 28,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 28,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 28
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -213,18 +213,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 14,
-            UIContentSizeCategorySmall: 15,
-            UIContentSizeCategoryMedium: 16,
-            UIContentSizeCategoryLarge: 17,
-            UIContentSizeCategoryExtraLarge: 18,
-            UIContentSizeCategoryExtraExtraLarge: 19,
-            UIContentSizeCategoryExtraExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityMedium: 20,
-            UIContentSizeCategoryAccessibilityLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 20
+            ContentSizeCategory.extraSmall: 14,
+            ContentSizeCategory.small: 15,
+            ContentSizeCategory.medium: 16,
+            ContentSizeCategory.large: 17,
+            ContentSizeCategory.extraLarge: 18,
+            ContentSizeCategory.extraExtraLarge: 19,
+            ContentSizeCategory.extraExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityMedium: 20,
+            ContentSizeCategory.accessibilityLarge: 20,
+            ContentSizeCategory.accessibilityExtraLarge: 20,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 20
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -244,18 +244,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 14,
-            UIContentSizeCategorySmall: 15,
-            UIContentSizeCategoryMedium: 16,
-            UIContentSizeCategoryLarge: 17,
-            UIContentSizeCategoryExtraLarge: 18,
-            UIContentSizeCategoryExtraExtraLarge: 19,
-            UIContentSizeCategoryExtraExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityMedium: 21,
-            UIContentSizeCategoryAccessibilityLarge: 22,
-            UIContentSizeCategoryAccessibilityExtraLarge: 23,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 24,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 25
+            ContentSizeCategory.extraSmall: 14,
+            ContentSizeCategory.small: 15,
+            ContentSizeCategory.medium: 16,
+            ContentSizeCategory.large: 17,
+            ContentSizeCategory.extraLarge: 18,
+            ContentSizeCategory.extraExtraLarge: 19,
+            ContentSizeCategory.extraExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityMedium: 21,
+            ContentSizeCategory.accessibilityLarge: 22,
+            ContentSizeCategory.accessibilityExtraLarge: 23,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 24,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 25
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -326,18 +326,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 15, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 12,
-            UIContentSizeCategorySmall: 13,
-            UIContentSizeCategoryMedium: 14,
-            UIContentSizeCategoryLarge: 15,
-            UIContentSizeCategoryExtraLarge: 16,
-            UIContentSizeCategoryExtraExtraLarge: 17,
-            UIContentSizeCategoryExtraExtraExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityMedium: 18,
-            UIContentSizeCategoryAccessibilityLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 18
+            ContentSizeCategory.extraSmall: 12,
+            ContentSizeCategory.small: 13,
+            ContentSizeCategory.medium: 14,
+            ContentSizeCategory.large: 15,
+            ContentSizeCategory.extraLarge: 16,
+            ContentSizeCategory.extraExtraLarge: 17,
+            ContentSizeCategory.extraExtraExtraLarge: 18,
+            ContentSizeCategory.accessibilityMedium: 18,
+            ContentSizeCategory.accessibilityLarge: 18,
+            ContentSizeCategory.accessibilityExtraLarge: 18,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 18,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 18
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -408,18 +408,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 13, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 10,
-            UIContentSizeCategorySmall: 11,
-            UIContentSizeCategoryMedium: 12,
-            UIContentSizeCategoryLarge: 13,
-            UIContentSizeCategoryExtraLarge: 14,
-            UIContentSizeCategoryExtraExtraLarge: 15,
-            UIContentSizeCategoryExtraExtraExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityMedium: 16,
-            UIContentSizeCategoryAccessibilityLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 16
+            ContentSizeCategory.extraSmall: 10,
+            ContentSizeCategory.small: 11,
+            ContentSizeCategory.medium: 12,
+            ContentSizeCategory.large: 13,
+            ContentSizeCategory.extraLarge: 14,
+            ContentSizeCategory.extraExtraLarge: 15,
+            ContentSizeCategory.extraExtraExtraLarge: 16,
+            ContentSizeCategory.accessibilityMedium: 16,
+            ContentSizeCategory.accessibilityLarge: 16,
+            ContentSizeCategory.accessibilityExtraLarge: 16,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 16,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 16
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -490,18 +490,18 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 11, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 8,
-            UIContentSizeCategorySmall: 9,
-            UIContentSizeCategoryMedium: 10,
-            UIContentSizeCategoryLarge: 11,
-            UIContentSizeCategoryExtraLarge: 12,
-            UIContentSizeCategoryExtraExtraLarge: 13,
-            UIContentSizeCategoryExtraExtraExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityMedium: 14,
-            UIContentSizeCategoryAccessibilityLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 14
+            ContentSizeCategory.extraSmall: 8,
+            ContentSizeCategory.small: 9,
+            ContentSizeCategory.medium: 10,
+            ContentSizeCategory.large: 11,
+            ContentSizeCategory.extraLarge: 12,
+            ContentSizeCategory.extraExtraLarge: 13,
+            ContentSizeCategory.extraExtraExtraLarge: 14,
+            ContentSizeCategory.accessibilityMedium: 14,
+            ContentSizeCategory.accessibilityLarge: 14,
+            ContentSizeCategory.accessibilityExtraLarge: 14,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 14,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 14
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -572,18 +572,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 28, increment: 2, decrement: 2)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 22,
-            UIContentSizeCategorySmall: 24,
-            UIContentSizeCategoryMedium: 26,
-            UIContentSizeCategoryLarge: 28,
-            UIContentSizeCategoryExtraLarge: 30,
-            UIContentSizeCategoryExtraExtraLarge: 32,
-            UIContentSizeCategoryExtraExtraExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityMedium: 34,
-            UIContentSizeCategoryAccessibilityLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 34,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 34
+            ContentSizeCategory.extraSmall: 22,
+            ContentSizeCategory.small: 24,
+            ContentSizeCategory.medium: 26,
+            ContentSizeCategory.large: 28,
+            ContentSizeCategory.extraLarge: 30,
+            ContentSizeCategory.extraExtraLarge: 32,
+            ContentSizeCategory.extraExtraExtraLarge: 34,
+            ContentSizeCategory.accessibilityMedium: 34,
+            ContentSizeCategory.accessibilityLarge: 34,
+            ContentSizeCategory.accessibilityExtraLarge: 34,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 34,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 34
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -638,18 +638,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 22, increment: 2, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 19,
-            UIContentSizeCategorySmall: 20,
-            UIContentSizeCategoryMedium: 21,
-            UIContentSizeCategoryLarge: 22,
-            UIContentSizeCategoryExtraLarge: 24,
-            UIContentSizeCategoryExtraExtraLarge: 26,
-            UIContentSizeCategoryExtraExtraExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityMedium: 28,
-            UIContentSizeCategoryAccessibilityLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 28,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 28
+            ContentSizeCategory.extraSmall: 19,
+            ContentSizeCategory.small: 20,
+            ContentSizeCategory.medium: 21,
+            ContentSizeCategory.large: 22,
+            ContentSizeCategory.extraLarge: 24,
+            ContentSizeCategory.extraExtraLarge: 26,
+            ContentSizeCategory.extraExtraExtraLarge: 28,
+            ContentSizeCategory.accessibilityMedium: 28,
+            ContentSizeCategory.accessibilityLarge: 28,
+            ContentSizeCategory.accessibilityExtraLarge: 28,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 28,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 28
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -704,18 +704,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 17, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 14,
-            UIContentSizeCategorySmall: 15,
-            UIContentSizeCategoryMedium: 16,
-            UIContentSizeCategoryLarge: 17,
-            UIContentSizeCategoryExtraLarge: 18,
-            UIContentSizeCategoryExtraExtraLarge: 19,
-            UIContentSizeCategoryExtraExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityMedium: 20,
-            UIContentSizeCategoryAccessibilityLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 20
+            ContentSizeCategory.extraSmall: 14,
+            ContentSizeCategory.small: 15,
+            ContentSizeCategory.medium: 16,
+            ContentSizeCategory.large: 17,
+            ContentSizeCategory.extraLarge: 18,
+            ContentSizeCategory.extraExtraLarge: 19,
+            ContentSizeCategory.extraExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityMedium: 20,
+            ContentSizeCategory.accessibilityLarge: 20,
+            ContentSizeCategory.accessibilityExtraLarge: 20,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 20
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -731,18 +731,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 14,
-            UIContentSizeCategorySmall: 15,
-            UIContentSizeCategoryMedium: 16,
-            UIContentSizeCategoryLarge: 17,
-            UIContentSizeCategoryExtraLarge: 18,
-            UIContentSizeCategoryExtraExtraLarge: 19,
-            UIContentSizeCategoryExtraExtraExtraLarge: 20,
-            UIContentSizeCategoryAccessibilityMedium: 21,
-            UIContentSizeCategoryAccessibilityLarge: 22,
-            UIContentSizeCategoryAccessibilityExtraLarge: 23,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 24,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 25
+            ContentSizeCategory.extraSmall: 14,
+            ContentSizeCategory.small: 15,
+            ContentSizeCategory.medium: 16,
+            ContentSizeCategory.large: 17,
+            ContentSizeCategory.extraLarge: 18,
+            ContentSizeCategory.extraExtraLarge: 19,
+            ContentSizeCategory.extraExtraExtraLarge: 20,
+            ContentSizeCategory.accessibilityMedium: 21,
+            ContentSizeCategory.accessibilityLarge: 22,
+            ContentSizeCategory.accessibilityExtraLarge: 23,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 24,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 25
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -797,18 +797,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 15, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 12,
-            UIContentSizeCategorySmall: 13,
-            UIContentSizeCategoryMedium: 14,
-            UIContentSizeCategoryLarge: 15,
-            UIContentSizeCategoryExtraLarge: 16,
-            UIContentSizeCategoryExtraExtraLarge: 17,
-            UIContentSizeCategoryExtraExtraExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityMedium: 18,
-            UIContentSizeCategoryAccessibilityLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 18,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 18
+            ContentSizeCategory.extraSmall: 12,
+            ContentSizeCategory.small: 13,
+            ContentSizeCategory.medium: 14,
+            ContentSizeCategory.large: 15,
+            ContentSizeCategory.extraLarge: 16,
+            ContentSizeCategory.extraExtraLarge: 17,
+            ContentSizeCategory.extraExtraExtraLarge: 18,
+            ContentSizeCategory.accessibilityMedium: 18,
+            ContentSizeCategory.accessibilityLarge: 18,
+            ContentSizeCategory.accessibilityExtraLarge: 18,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 18,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 18
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -863,18 +863,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 13, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 10,
-            UIContentSizeCategorySmall: 11,
-            UIContentSizeCategoryMedium: 12,
-            UIContentSizeCategoryLarge: 13,
-            UIContentSizeCategoryExtraLarge: 14,
-            UIContentSizeCategoryExtraExtraLarge: 15,
-            UIContentSizeCategoryExtraExtraExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityMedium: 16,
-            UIContentSizeCategoryAccessibilityLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 16,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 16
+            ContentSizeCategory.extraSmall: 10,
+            ContentSizeCategory.small: 11,
+            ContentSizeCategory.medium: 12,
+            ContentSizeCategory.large: 13,
+            ContentSizeCategory.extraLarge: 14,
+            ContentSizeCategory.extraExtraLarge: 15,
+            ContentSizeCategory.extraExtraExtraLarge: 16,
+            ContentSizeCategory.accessibilityMedium: 16,
+            ContentSizeCategory.accessibilityLarge: 16,
+            ContentSizeCategory.accessibilityExtraLarge: 16,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 16,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 16
         ]
 
         for (sizeCategory, fontSize) in sizes {
@@ -929,18 +929,18 @@ class KGNPreferredFontManagerFontNameTests: XCTestCase {
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontName: fontName, baseFontSize: 11, increment: 1, decrement: 1)
 
         let sizes: [String: CGFloat] = [
-            UIContentSizeCategoryExtraSmall: 8,
-            UIContentSizeCategorySmall: 9,
-            UIContentSizeCategoryMedium: 10,
-            UIContentSizeCategoryLarge: 11,
-            UIContentSizeCategoryExtraLarge: 12,
-            UIContentSizeCategoryExtraExtraLarge: 13,
-            UIContentSizeCategoryExtraExtraExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityMedium: 14,
-            UIContentSizeCategoryAccessibilityLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraExtraLarge: 14,
-            UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: 14
+            ContentSizeCategory.extraSmall: 8,
+            ContentSizeCategory.small: 9,
+            ContentSizeCategory.medium: 10,
+            ContentSizeCategory.large: 11,
+            ContentSizeCategory.extraLarge: 12,
+            ContentSizeCategory.extraExtraLarge: 13,
+            ContentSizeCategory.extraExtraExtraLarge: 14,
+            ContentSizeCategory.accessibilityMedium: 14,
+            ContentSizeCategory.accessibilityLarge: 14,
+            ContentSizeCategory.accessibilityExtraLarge: 14,
+            ContentSizeCategory.accessibilityExtraExtraLarge: 14,
+            ContentSizeCategory.accessibilityExtraExtraExtraLarge: 14
         ]
 
         for (sizeCategory, fontSize) in sizes {
