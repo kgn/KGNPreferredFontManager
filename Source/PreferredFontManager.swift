@@ -20,7 +20,7 @@ internal let PreferredFontManagerTextStyleKey = "PreferredFontManagerTextStyleKe
 public class PreferredFontManager: NSObject {
 
     ///  A shared preferred font manager object to use
-    public static let sharedManager = PreferredFontManager()
+    public static let shared = PreferredFontManager()
 
     /**
     Register a font for a given text style with the font name, base size, and increment/decrement values.

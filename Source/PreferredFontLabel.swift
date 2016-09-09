@@ -41,7 +41,7 @@ open class PreferredFontLabel: UILabel {
 
     /// The preferred font manager object to use.
     /// Defaults to `PreferredFontManager.sharedManager()`.
-    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.sharedManager {
+    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.shared {
         didSet {
             self.updateFont()
         }

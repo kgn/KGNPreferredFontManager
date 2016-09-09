@@ -2,6 +2,7 @@
 
 Helper class to registering custom fonts for `UIFontTextStyle`. 
 
+[![Swift 3](http://img.shields.io/badge/Swift-3-orange.svg)]()
 [![Release](https://img.shields.io/github/release/kgn/KGNPreferredFontManager.svg)](/releases)
 [![License](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
 
@@ -50,23 +51,23 @@ There are two versions of this method. One takes `fontWeight: CGFloat`, which is
 Check out the Example app provided to see this in action.
 
 ``` Swift
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .headline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize*4, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .subheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize*2, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .body, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize, increment: 2, decrement: 1, includeAccessibilitySizes: true)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .footnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize, increment: 1, decrement: 1)
 ```
 
 #### fontName
 
 ``` Swift
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleHeadline, fontName: "AvenirNext-Light", baseFontSize: 28, increment: 2, decrement: 2)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleSubheadline, fontName: "AvenirNext-Regular", baseFontSize: 22, increment: 2, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleBody, fontName: "AvenirNext-Regular", baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption1, fontName: "AvenirNext-Medium", baseFontSize: 15, increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleCaption2, fontName: "AvenirNext-Regular", baseFontSize: 13, increment: 1, decrement: 1)
-PreferredFontManager.sharedManager().registerFontsForTextStyle(UIFontTextStyleFootnote, fontName: "AvenirNext-Regular", baseFontSize: 11, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .headline, fontName: "AvenirNext-Light", baseFontSize: 28, increment: 2, decrement: 2)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .subheadline, fontName: "AvenirNext-Regular", baseFontSize: 22, increment: 2, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .body, fontName: "AvenirNext-Regular", baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption1, fontName: "AvenirNext-Medium", baseFontSize: 15, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption2, fontName: "AvenirNext-Regular", baseFontSize: 13, increment: 1, decrement: 1)
+PreferredFontManager.sharedManager.registerFonts(forTextStyle: .footnote, fontName: "AvenirNext-Regular", baseFontSize: 11, increment: 1, decrement: 1)
 ```
 
 ### PreferredFontButton, PreferredFontLabel & PreferredFontTextField
@@ -79,16 +80,16 @@ let textField = PreferredFontTextField()
 ```
 
 #### Property: textStyle
-By default the `UIFontTextStyleBody` is used, but this can be customized and changed at any time with the `textStyle:` initializer or the `.textStyle` property.
+By default the `UIFontTextStyle.body` is used, but this can be customized and changed at any time with the `textStyle:` initializer or the `.textStyle` property.
 
 ``` Swift
-let label = PreferredFontLabel(textStyle: UIFontTextStyleHeadline)
-let button = PreferredFontButton(textStyle: UIFontTextStyleHeadline)
-let textField = PreferredFontTextField(textStyle: UIFontTextStyleHeadline)
+let label = PreferredFontLabel(textStyle: .headline)
+let button = PreferredFontButton(textStyle: .headline)
+let textField = PreferredFontTextField(textStyle: .headline)
 ```
 
 #### Property: preferredFontManager
-By default this property is set to `PreferredFontManager.sharedManager()`, if there is not a registered text style `UIFont.preferredFontForTextStyle` is used instead. This property can also be set to a custom `PreferredFontManager` object.
+By default this property is set to `PreferredFontManager.shared`, if there is not a registered text style `UIFont.preferredFontForTextStyle` is used instead. This property can also be set to a custom `PreferredFontManager` object.
 
 ## Progress:
 - [X] Tests
