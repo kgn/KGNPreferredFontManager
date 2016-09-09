@@ -68,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6487CECD1D834A1A00B2589C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		833C2C1E1BE311080042C628 /* PreferredFontTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredFontTextField.swift; sourceTree = "<group>"; };
 		836E69501BCBA6F50089EAB1 /* KGNPreferredFontManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNPreferredFontManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836E69531BCBA6F50089EAB1 /* KGNPreferredFontManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNPreferredFontManager.h; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		836E69461BCBA6F50089EAB1 = {
 			isa = PBXGroup;
 			children = (
+				6487CECD1D834A1A00B2589C /* .travis.yml */,
 				83E88E591BCF5AD20018D5A9 /* Example */,
 				836E69521BCBA6F50089EAB1 /* Source */,
 				836E695E1BCBA6F50089EAB1 /* Tests */,

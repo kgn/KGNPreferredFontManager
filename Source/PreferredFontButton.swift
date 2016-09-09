@@ -17,11 +17,23 @@ private extension Selector {
 /// the `textStyle` and `preferredFontManager` properties.
 /// The font used is automaticly updated when the user changes
 /// their accesability text size setting.
-public class PreferredFontButton: UIButton {
+open class PreferredFontButton: UIButton {
 
+    // TODO: before iOS 10 this may not behave as expected
+    private var lastSizeCategory: UIContentSizeCategory = .medium
+    private var sizeCategory: UIContentSizeCategory {
+        if #available(iOSApplicationExtension 10.0, *) {
+            // TODO: is this always unspecified
+            if self.traitCollection.preferredContentSizeCategory != .unspecified {
+                return self.traitCollection.preferredContentSizeCategory
+            }
+        }
+        return self.lastSizeCategory
+    }
+    
     /// The text style to be used.
     /// Defaults to `UIFontTextStyleBody`.
-    public var textStyle: String = UIFontTextStyleBody {
+    public var textStyle: UIFontTextStyle = .body {
         didSet {
             self.updateFont()
         }
@@ -29,14 +41,14 @@ public class PreferredFontButton: UIButton {
 
     /// The preferred font manager object to use.
     /// Defaults to `PreferredFontManager.sharedManager()`.
-    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.sharedManager() {
+    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.sharedManager {
         didSet {
             self.updateFont()
         }
     }
 
     private var hasMovedToSuperview = false
-    public override func didMoveToSuperview() {
+    open override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
         // HACK: The buttonType convenience init
@@ -54,14 +66,14 @@ public class PreferredFontButton: UIButton {
         self.setup()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setup()
     }
 
 
     /// Initialize a `PreferredFontButton` object with a given textStyle.
-    public convenience init(textStyle: String) {
+    public convenience init(textStyle: UIFontTextStyle) {
         self.init(frame: CGRect.zero)
         self.textStyle = textStyle
         self.updateFont()
@@ -85,22 +97,31 @@ public class PreferredFontButton: UIButton {
     }
 
     private func updateFont() {
-        if let font = self.preferredFontManager?.preferredFont(forTextStyle: self.textStyle) {
+        if let font = self.preferredFontManager?.preferredFont(forTextStyle: self.textStyle, sizeCategory: self.sizeCategory) {
             self.titleLabel?.font = font
         } else  {
             self.titleLabel?.font = UIFont.preferredFont(forTextStyle: self.textStyle)
         }
     }
 
-    @objc private func preferredFontManagerDidChange(notification: Notification) {
-        let preferredFontManager = notification.object?[PreferredFontManagerObjectKey] as? PreferredFontManager
-        let textStyle = notification.object?[PreferredFontManagerTextStyleKey] as? String
+    @objc fileprivate func preferredFontManagerDidChange(notification: Notification) {
+        guard let object = notification.object as? [String: Any] else {
+            return
+        }
+        
+        let preferredFontManager = object[PreferredFontManagerObjectKey] as? PreferredFontManager
+        let textStyle = object[PreferredFontManagerTextStyleKey] as? UIFontTextStyle
         if preferredFontManager == self.preferredFontManager && textStyle == self.textStyle {
             self.updateFont()
         }
     }
 
-    @objc private func contentSizeCategoryDidChange(notification: Notification) {
+    @objc fileprivate func contentSizeCategoryDidChange(notification: Notification) {
+        if let object = notification.object as? [String: Any] {
+            if let sizeCategory = object[UIContentSizeCategoryNewValueKey] as? UIContentSizeCategory {
+                self.lastSizeCategory = sizeCategory
+            }
+        }
         self.updateFont()
     }
 

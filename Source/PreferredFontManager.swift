@@ -12,132 +12,15 @@ internal extension Notification.Name {
     
 }
 
+// TODO: udpate notification name
 internal let PreferredFontManagerDidChangeNotification = "PreferredFontManagerDidChangeNotification"
 internal let PreferredFontManagerObjectKey = "PreferredFontManagerObjectKey"
 internal let PreferredFontManagerTextStyleKey = "PreferredFontManagerTextStyleKey"
 
-public struct ContentSizeCategory {
-    
-    public static var defaultSize: String {
-        return self.large
-    }
-    
-    // TODO: figure out a way to get this working
-    public static var preferredContentSizeCategory: String {
-        return self.defaultSize
-//        let preferredContentSizeCategory = UIApplication.shared().preferredContentSizeCategory as AnyObject
-//        if preferredContentSizeCategory is String {
-//            return preferredContentSizeCategory as! String
-//        }
-//        return UIApplication.shared().preferredContentSizeCategory.rawValue
-    }
-    
-    public static var extraSmall: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.extraSmall.rawValue
-        } else {
-            return "UICTContentSizeCategoryXS"
-        }
-    }
-    
-    public static var small: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.small.rawValue
-        } else {
-            return "UICTContentSizeCategoryS"
-        }
-    }
-    
-    public static var medium: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.medium.rawValue
-        } else {
-            return "UICTContentSizeCategoryM"
-        }
-    }
-    
-    public static var large: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.large.rawValue
-        } else {
-            return "UICTContentSizeCategoryL"
-        }
-    }
-    
-    public static var extraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.extraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryXL"
-        }
-    }
-    
-    public static var extraExtraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.extraExtraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryXXL"
-        }
-    }
-    
-    public static var extraExtraExtraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.extraExtraExtraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryXXXL"
-        }
-    }
-    
-    public static var accessibilityMedium: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.accessibilityMedium.rawValue
-        } else {
-            return "UICTContentSizeCategoryAccessibilityM"
-        }
-    }
-    
-    public static var accessibilityLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.accessibilityLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryAccessibilityL"
-        }
-    }
-    
-    public static var accessibilityExtraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.accessibilityExtraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryAccessibilityXL"
-        }
-    }
-    
-    public static var accessibilityExtraExtraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.accessibilityExtraExtraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryAccessibilityXXL"
-        }
-    }
-    
-    public static var accessibilityExtraExtraExtraLarge: String {
-        if #available(iOS 10, *) {
-            return UIContentSizeCategory.accessibilityExtraExtraExtraLarge.rawValue
-        } else {
-            return "UICTContentSizeCategoryAccessibilityXXXL"
-        }
-    }
-    
-}
-
 public class PreferredFontManager: NSObject {
 
-    private static let privateSharedManager = PreferredFontManager()
-
     ///  A shared preferred font manager object to use
-    public static func sharedManager() -> PreferredFontManager {
-        return self.privateSharedManager
-    }
+    public static let sharedManager = PreferredFontManager()
 
     /**
     Register a font for a given text style with the font name, base size, and increment/decrement values.
@@ -150,7 +33,7 @@ public class PreferredFontManager: NSObject {
     - Parameter includeAccessibilitySizes: Defaults to false, meaning that all of the additional accesability size categories will used the same font size as the `UIContentSizeCategoryExtraExtraExtraLarge` size category.
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
-    public func registerFonts(forTextStyle style: String, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         self.registerFonts(forTextStyle: style, fontName: fontName, fontWeight: nil, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
 
@@ -166,25 +49,19 @@ public class PreferredFontManager: NSObject {
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
     @available(iOS 8.2, *)
-    public func registerFonts(forTextStyle style: String, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFonts(forTextStyle style: UIFontTextStyle, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         self.registerFonts(forTextStyle: style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
-    }
-
-    @available(iOS 10, *)
-    public func preferredFont(forTextStyle style: String, sizeCategory: UIContentSizeCategory?) -> UIFont? {
-        return self.preferredFont(forTextStyle: style, sizeCategory: sizeCategory?.rawValue)
     }
     
     /**
     Returns the font object for a given text style.
 
     - Parameter style: The text style for which to return a font. See "Text Styles" in `UIFontDescriptor Class Reference` for recognized values.
-    - Parameter sizeCategory: An optional sizeCategory, by default the value is retrieved from `UIApplication.sharedApplication().preferredContentSizeCategory`.
+    - Parameter sizeCategory: The size category for which to return a font.
     - Returns: The font object.
     */
-    public func preferredFont(forTextStyle style: String, sizeCategory: String? = nil) -> UIFont? {
-        let innerSizeCategory: String? = sizeCategory ?? ContentSizeCategory.preferredContentSizeCategory
-        if let sizes = self.fonts[style], let font = sizes[innerSizeCategory!] {
+    public func preferredFont(forTextStyle style: UIFontTextStyle, sizeCategory: UIContentSizeCategory) -> UIFont? {
+        if let sizes = self.fonts[style], let font = sizes[sizeCategory] {
             return font
         }
         return nil
@@ -192,17 +69,14 @@ public class PreferredFontManager: NSObject {
 
     // MARK: - Private
 
-    private var fonts: [String: [String: UIFont?]] = [:]
-    private let fontSizes = [ContentSizeCategory.extraSmall, ContentSizeCategory.small, ContentSizeCategory.medium,
-        ContentSizeCategory.large, ContentSizeCategory.extraLarge, ContentSizeCategory.extraExtraLarge,
-        ContentSizeCategory.extraExtraExtraLarge]
-    private let accessibilityFontSizes = [ContentSizeCategory.accessibilityMedium, ContentSizeCategory.accessibilityLarge,
-        ContentSizeCategory.accessibilityExtraLarge, ContentSizeCategory.accessibilityExtraExtraLarge,
-        ContentSizeCategory.accessibilityExtraExtraExtraLarge]
+    private var fonts: [UIFontTextStyle: [UIContentSizeCategory: UIFont?]] = [:]
+    private let fontSizes: [UIContentSizeCategory] = [.extraSmall, .small, .medium, .large, .extraLarge, .extraExtraLarge, .extraExtraExtraLarge]
+    private let accessibilityFontSizes: [UIContentSizeCategory] = [.accessibilityMedium, .accessibilityLarge,
+        .accessibilityExtraLarge, .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge]
 
     // TODO: make this lazy
-    private func registerFonts(forTextStyle style: String, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
-        var fonts: [String: UIFont?] = [:]
+    private func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+        var fonts: [UIContentSizeCategory: UIFont?] = [:]
         let middleIndex = floor(CGFloat(self.fontSizes.count)/2.0)
 
         for (index, fontSize) in self.fontSizes.enumerated() {
@@ -247,7 +121,7 @@ public class PreferredFontManager: NSObject {
 
         self.fonts[style] = fonts
 
-        let object = [PreferredFontManagerObjectKey: self, PreferredFontManagerTextStyleKey: style]
+        let object = [PreferredFontManagerObjectKey: self, PreferredFontManagerTextStyleKey: style] as [String : Any]
         NotificationCenter.default.post(name: Notification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: object)
     }
 }

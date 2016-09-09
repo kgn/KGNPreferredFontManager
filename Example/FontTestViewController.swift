@@ -17,53 +17,52 @@ private extension Selector {
 class FontTestViewController: UIViewController {
 
     private var labels: [PreferredFontLabel] = []
-    private let fontSizes = [ContentSizeCategory.extraSmall, ContentSizeCategory.small, ContentSizeCategory.medium,
-        ContentSizeCategory.large, ContentSizeCategory.extraLarge, ContentSizeCategory.extraExtraLarge,
-        ContentSizeCategory.extraExtraExtraLarge, ContentSizeCategory.accessibilityMedium,
-        ContentSizeCategory.accessibilityLarge, ContentSizeCategory.accessibilityExtraLarge,
-        ContentSizeCategory.accessibilityExtraExtraLarge, ContentSizeCategory.accessibilityExtraExtraExtraLarge]
+    private let fontSizes: [UIContentSizeCategory] = [.extraSmall, .small, .medium,
+        .large, .extraLarge, .extraExtraLarge, .extraExtraExtraLarge,
+        .accessibilityMedium, .accessibilityLarge, .accessibilityExtraLarge,
+        .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let largePadding: CGFloat = 20
 
-        self.view.backgroundColor = UIColor.white()
+        self.view.backgroundColor = UIColor.white
 
         // Register the fonts with the shared manager
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleHeadline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize()*4, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleSubheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize()*2, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleBody, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelSize(), increment: 2, decrement: 1, includeAccessibilitySizes: true)
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleCaption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleCaption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize(), increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager().registerFonts(forTextStyle: UIFontTextStyleFootnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize(), increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .headline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize*4, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .subheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize*2, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .body, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize, increment: 2, decrement: 1, includeAccessibilitySizes: true)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .footnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize, increment: 1, decrement: 1)
 
-        let headline = PreferredFontLabel(textStyle: UIFontTextStyleHeadline)
+        let headline = PreferredFontLabel(textStyle: .headline)
         headline.text = "Headline"
         self.view.addSubview(headline)
         headline.centerHorizontallyInSuperview()
 
-        let subheadline = PreferredFontLabel(textStyle: UIFontTextStyleSubheadline)
+        let subheadline = PreferredFontLabel(textStyle: .subheadline)
         subheadline.text = "Subheadline"
         self.view.addSubview(subheadline)
         subheadline.centerHorizontallyInSuperview()
 
-        let body = PreferredFontLabel(textStyle: UIFontTextStyleBody)
+        let body = PreferredFontLabel(textStyle: .body)
         body.text = "Body"
         self.view.addSubview(body)
         body.centerHorizontallyInSuperview()
 
-        let caption1 = PreferredFontLabel(textStyle: UIFontTextStyleCaption1)
+        let caption1 = PreferredFontLabel(textStyle: .caption1)
         caption1.text = "Caption1"
         self.view.addSubview(caption1)
         caption1.centerHorizontallyInSuperview()
 
-        let caption2 = PreferredFontLabel(textStyle: UIFontTextStyleCaption2)
+        let caption2 = PreferredFontLabel(textStyle: .caption2)
         caption2.text = "Caption2"
         self.view.addSubview(caption2)
         caption2.centerHorizontallyInSuperview()
 
-        let footnote = PreferredFontLabel(textStyle: UIFontTextStyleFootnote)
+        let footnote = PreferredFontLabel(textStyle: .footnote)
         footnote.text = "Footnote"
         self.view.addSubview(footnote)
         footnote.centerHorizontallyInSuperview()
@@ -74,7 +73,7 @@ class FontTestViewController: UIViewController {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = Float(fontSizes.count-1)
-        if let currentIndex = self.fontSizes.index(of: ContentSizeCategory.preferredContentSizeCategory) {
+        if let currentIndex = self.fontSizes.index(of: UIApplication.shared.preferredContentSizeCategory) {
             slider.value = Float(currentIndex)
         }
         slider.addTarget(self, action: .sliderAction, for: .valueChanged)
@@ -83,7 +82,7 @@ class FontTestViewController: UIViewController {
         slider.pinToSideEdgesOfSuperview(offset: largePadding)
     }
 
-    @objc private func sliderAction(sender: UISlider) {
+    @objc fileprivate func sliderAction(sender: UISlider) {
         let index = Int(round(sender.value))
         for label in self.labels {
             if let font = label.preferredFontManager?.preferredFont(forTextStyle: label.textStyle, sizeCategory: self.fontSizes[index]) {

@@ -1,33 +1,16 @@
 language: objective-c
-osx_image: xcode7.3
+osx_image: xcode8
 
 env:
   global:
     - PROJECT=KGNPreferredFontManager
-    - SCHEME=$PROJECT
-    - DESTINATION="OS=9.3,name=iPhone 6s Plus"
-  # matrix:
-  #   - DESTINATION="OS=8.1,name=iPhone 4s"
-  #   - DESTINATION="OS=8.2,name=iPhone 5"
-  #   - DESTINATION="OS=8.3,name=iPhone 5s"
-  #   - DESTINATION="OS=8.4,name=iPhone 6"
-  #   - DESTINATION="OS=9.0,name=iPhone 6 Plus"
-  #   - DESTINATION="OS=9.1,name=iPhone 6s"
-  #   - DESTINATION="OS=9.1,name=iPhone 6s Plus"
-  #   - DESTINATION="OS=9.2,name=iPhone 6s"
-  #   - DESTINATION="OS=9.2,name=iPhone 6s Plus"
-  #   - DESTINATION="OS=9.3,name=iPhone 6s"
-    # - DESTINATION="OS=9.3,name=iPhone 6s Plus"
+  matrix:
+    - DESTINATION="OS=10.0, name=iPhone 7 Plus" SCHEME=$PROJECT-iOS SDK=iphonesimulator TEST=test
+    - DESTINATION="OS=10.0, name=Apple TV 1080p" SCHEME=$PROJECT-tvOS SDK=appletvsimulator TEST=test
+    - DESTINATION="OS=3.0, name=Apple Watch - 42mm" SCHEME=$PROJECT-watchOS SDK=watchsimulator TEST=
 
 script:
-  - xcodebuild test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
-
-before_install:
-  - brew update
-  - brew install carthage
-
-# before_script:
-#   - carthage bootstrap
+  - xcodebuild $TEST -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK -destination "$DESTINATION"
 
 before_deploy:
   - carthage build --no-skip-current
