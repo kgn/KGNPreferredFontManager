@@ -70,8 +70,7 @@ open class PreferredFontTextField: UITextField {
 
     /// This `setup` method is called when initalized.
     /// Override this method to customize the setup of the button object.
-    /// Be sure to call `super.setup()` in your implementation.
-    public func setup() {
+    open func setup() {
         self.updateFont()
         NotificationCenter.default.addObserver(
             self, selector: .contentSizeCategoryDidChange,
