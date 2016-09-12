@@ -33,7 +33,7 @@ open class PreferredFontLabel: UILabel {
     
     /// The text style to be used.
     /// Defaults to `UIFontTextStyleBody`.
-    public var textStyle: UIFontTextStyle = .body {
+    open var textStyle: UIFontTextStyle = .body {
         didSet {
             self.updateFont()
         }
@@ -41,7 +41,7 @@ open class PreferredFontLabel: UILabel {
 
     /// The preferred font manager object to use.
     /// Defaults to `PreferredFontManager.sharedManager()`.
-    public var preferredFontManager: PreferredFontManager? = PreferredFontManager.shared {
+    open var preferredFontManager: PreferredFontManager? = PreferredFontManager.shared {
         didSet {
             self.updateFont()
         }
