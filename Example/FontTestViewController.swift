@@ -30,12 +30,12 @@ class FontTestViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
 
         // Register the fonts with the shared manager
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .headline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize*4, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .subheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize*2, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .body, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize, increment: 2, decrement: 1, includeAccessibilitySizes: true)
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .caption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
-        PreferredFontManager.sharedManager.registerFonts(forTextStyle: .footnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize, increment: 1, decrement: 1)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .headline, fontWeight: UIFontWeightUltraLight, baseFontSize: UIFont.systemFontSize*4, increment: 1, decrement: 1)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .subheadline, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize*2, increment: 1, decrement: 1)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .body, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.labelFontSize, increment: 2, decrement: 1, includeAccessibilitySizes: true)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .caption1, fontWeight: UIFontWeightMedium, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .caption2, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.systemFontSize, increment: 1, decrement: 1)
+        PreferredFontManager.shared.registerFonts(forTextStyle: .footnote, fontWeight: UIFontWeightRegular, baseFontSize: UIFont.smallSystemFontSize, increment: 1, decrement: 1)
 
         let headline = PreferredFontLabel(textStyle: .headline)
         headline.text = "Headline"
@@ -68,7 +68,7 @@ class FontTestViewController: UIViewController {
         footnote.centerHorizontallyInSuperview()
 
         self.labels = [headline, subheadline, body, caption1, caption2, footnote]
-        self.view.centerVertically(views: labels, separation: largePadding)
+        labels.centerVertically(to: self.view, withSeparation: largePadding)
 
         let slider = UISlider()
         slider.minimumValue = 0
@@ -78,8 +78,8 @@ class FontTestViewController: UIViewController {
         }
         slider.addTarget(self, action: .sliderAction, for: .valueChanged)
         self.view.addSubview(slider)
-        slider.pinToBottomEdgeOfSuperview(offset: largePadding)
-        slider.pinToSideEdgesOfSuperview(offset: largePadding)
+        slider.pinToBottomEdgeOfSuperview(withOffset: largePadding)
+        slider.pinToSideEdgesOfSuperview(withOffset: largePadding)
     }
 
     @objc fileprivate func sliderAction(sender: UISlider) {
