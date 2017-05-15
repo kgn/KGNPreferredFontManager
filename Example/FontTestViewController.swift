@@ -68,7 +68,7 @@ class FontTestViewController: UIViewController {
         footnote.centerHorizontallyInSuperview()
 
         self.labels = [headline, subheadline, body, caption1, caption2, footnote]
-        labels.centerVertically(to: self.view, withSeparation: largePadding)
+        self.labels.centerVertically(to: self.view, withSeparation: largePadding)
 
         let slider = UISlider()
         slider.minimumValue = 0
