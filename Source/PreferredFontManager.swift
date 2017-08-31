@@ -49,7 +49,7 @@ public class PreferredFontManager: NSObject {
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
     @available(iOS 8.2, *)
-    public func registerFonts(forTextStyle style: UIFontTextStyle, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFonts(forTextStyle style: UIFontTextStyle, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         self.registerFonts(forTextStyle: style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
     
@@ -75,7 +75,7 @@ public class PreferredFontManager: NSObject {
         .accessibilityExtraLarge, .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge]
 
     // TODO: make this lazy
-    private func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, fontWeight: CGFloat?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    private func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         var fonts: [UIContentSizeCategory: UIFont?] = [:]
         let middleIndex = floor(CGFloat(self.fontSizes.count)/2.0)
 

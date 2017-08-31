@@ -43,7 +43,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightUltraLight
+        let fontWeight = UIFont.Weight.ultraLight
         let textStyle: UIFontTextStyle = .headline
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 28, increment: 2, decrement: 2)
@@ -74,7 +74,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightUltraLight
+        let fontWeight = UIFont.Weight.ultraLight
         let textStyle: UIFontTextStyle = .headline
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -91,7 +91,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightUltraLight
+        let fontWeight = UIFont.Weight.ultraLight
         let textStyle: UIFontTextStyle = .headline
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -108,7 +108,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightUltraLight
+        let fontWeight = UIFont.Weight.ultraLight
         let textStyle: UIFontTextStyle = .headline
 
         let textField = PreferredFontTextField(textStyle: textStyle)
@@ -125,7 +125,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .subheadline
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 22, increment: 2, decrement: 1)
@@ -156,7 +156,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .subheadline
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -173,7 +173,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .subheadline
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -190,7 +190,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .subheadline
 
         let textField = PreferredFontTextField(textStyle: textStyle)
@@ -207,7 +207,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .body
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 1, decrement: 1)
@@ -238,7 +238,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .body
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 17, increment: 1, decrement: 1, includeAccessibilitySizes: true)
@@ -269,7 +269,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .body
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -286,7 +286,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .body
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -303,7 +303,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .body
 
         let textField = PreferredFontTextField(textStyle: textStyle)
@@ -320,7 +320,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .caption1
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 15, increment: 1, decrement: 1)
@@ -351,7 +351,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .caption1
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -368,7 +368,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .caption1
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -385,7 +385,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightMedium
+        let fontWeight = UIFont.Weight.medium
         let textStyle: UIFontTextStyle = .caption1
 
         let textField = PreferredFontTextField(textStyle: textStyle)
@@ -402,7 +402,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .caption2
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 13, increment: 1, decrement: 1)
@@ -433,7 +433,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .caption2
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -450,7 +450,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .caption2
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -467,7 +467,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .caption2
 
         let textField = PreferredFontTextField(textStyle: textStyle)
@@ -484,7 +484,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .footnote
         let preferredFontManager = PreferredFontManager()
         preferredFontManager.registerFonts(forTextStyle: textStyle, fontWeight: fontWeight, baseFontSize: 11, increment: 1, decrement: 1)
@@ -515,7 +515,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .footnote
 
         let label = PreferredFontLabel(textStyle: textStyle)
@@ -532,7 +532,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .footnote
 
         let button = PreferredFontButton(textStyle: textStyle)
@@ -549,7 +549,7 @@ class KGNPreferredFontManagerFontWeightTests: XCTestCase {
             return
         }
 
-        let fontWeight = UIFontWeightRegular
+        let fontWeight = UIFont.Weight.regular
         let textStyle: UIFontTextStyle = .footnote
 
         let textField = PreferredFontTextField(textStyle: textStyle)

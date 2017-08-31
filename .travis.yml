@@ -1,11 +1,11 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9
 
 env:
   global:
     - PROJECT=KGNPreferredFontManager
   matrix:
-    - DESTINATION="OS=10.0,name=iPhone 6s Plus" SCHEME=$PROJECT SDK=iphonesimulator TEST=test
+    - DESTINATION="OS=11.0,name=iPhone 6s Plus" SCHEME=$PROJECT SDK=iphonesimulator TEST=test
 
 script:
   - xcodebuild $TEST -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK -destination "$DESTINATION"
