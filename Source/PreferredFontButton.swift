@@ -33,7 +33,7 @@ open class PreferredFontButton: UIButton {
     
     /// The text style to be used.
     /// Defaults to `UIFontTextStyleBody`.
-    open var textStyle: UIFontTextStyle = .body {
+    open var textStyle: UIFont.TextStyle = UIFont.TextStyle.body {
         didSet {
             self.updateFont()
         }
@@ -73,7 +73,7 @@ open class PreferredFontButton: UIButton {
 
 
     /// Initialize a `PreferredFontButton` object with a given textStyle.
-    public convenience init(textStyle: UIFontTextStyle) {
+    public convenience init(textStyle: UIFont.TextStyle) {
         self.init(frame: CGRect.zero)
         self.textStyle = textStyle
         self.updateFont()
@@ -90,7 +90,7 @@ open class PreferredFontButton: UIButton {
         self.updateFont()
         NotificationCenter.default.addObserver(
             self, selector: .contentSizeCategoryDidChange,
-            name: .UIContentSizeCategoryDidChange, object: nil)
+            name: UIContentSizeCategory.didChangeNotification, object: nil)
         NotificationCenter.default.addObserver(
             self, selector: .preferredFontManagerDidChange,
             name: NSNotification.Name(rawValue: PreferredFontManagerDidChangeNotification), object: nil)
@@ -110,7 +110,7 @@ open class PreferredFontButton: UIButton {
         }
         
         let preferredFontManager = object[PreferredFontManagerObjectKey] as? PreferredFontManager
-        let textStyle = object[PreferredFontManagerTextStyleKey] as? UIFontTextStyle
+        let textStyle = object[PreferredFontManagerTextStyleKey] as? UIFont.TextStyle
         if preferredFontManager == self.preferredFontManager && textStyle == self.textStyle {
             self.updateFont()
         }
@@ -118,7 +118,7 @@ open class PreferredFontButton: UIButton {
 
     @objc fileprivate func contentSizeCategoryDidChange(notification: Notification) {
         if let object = notification.object as? [String: Any] {
-            if let sizeCategory = object[UIContentSizeCategoryNewValueKey] as? UIContentSizeCategory {
+            if let sizeCategory = object[UIContentSizeCategory.newValueUserInfoKey] as? UIContentSizeCategory {
                 self.lastSizeCategory = sizeCategory
             }
         }

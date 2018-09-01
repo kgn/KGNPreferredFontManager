@@ -33,7 +33,7 @@ public class PreferredFontManager: NSObject {
     - Parameter includeAccessibilitySizes: Defaults to false, meaning that all of the additional accesability size categories will used the same font size as the `UIContentSizeCategoryExtraExtraExtraLarge` size category.
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
-    public func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFonts(forTextStyle style: UIFont.TextStyle, fontName: String?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         self.registerFonts(forTextStyle: style, fontName: fontName, fontWeight: nil, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
 
@@ -49,7 +49,7 @@ public class PreferredFontManager: NSObject {
     If set to true the font size is incremented all the way up to the `UIContentSizeCategoryAccessibilityExtraExtraExtraLarge` size category.
     */
     @available(iOS 8.2, *)
-    public func registerFonts(forTextStyle style: UIFontTextStyle, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    public func registerFonts(forTextStyle style: UIFont.TextStyle, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         self.registerFonts(forTextStyle: style, fontName: nil, fontWeight: fontWeight, baseFontSize: baseFontSize, increment: increment, decrement: decrement, includeAccessibilitySizes: includeAccessibilitySizes)
     }
     
@@ -60,7 +60,7 @@ public class PreferredFontManager: NSObject {
     - Parameter sizeCategory: The size category for which to return a font.
     - Returns: The font object.
     */
-    public func preferredFont(forTextStyle style: UIFontTextStyle, sizeCategory: UIContentSizeCategory) -> UIFont? {
+    public func preferredFont(forTextStyle style: UIFont.TextStyle, sizeCategory: UIContentSizeCategory) -> UIFont? {
         if let sizes = self.fonts[style], let font = sizes[sizeCategory] {
             return font
         }
@@ -69,13 +69,13 @@ public class PreferredFontManager: NSObject {
 
     // MARK: - Private
 
-    private var fonts: [UIFontTextStyle: [UIContentSizeCategory: UIFont?]] = [:]
+    private var fonts: [UIFont.TextStyle: [UIContentSizeCategory: UIFont?]] = [:]
     private let fontSizes: [UIContentSizeCategory] = [.extraSmall, .small, .medium, .large, .extraLarge, .extraExtraLarge, .extraExtraExtraLarge]
     private let accessibilityFontSizes: [UIContentSizeCategory] = [.accessibilityMedium, .accessibilityLarge,
         .accessibilityExtraLarge, .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge]
 
     // TODO: make this lazy
-    private func registerFonts(forTextStyle style: UIFontTextStyle, fontName: String?, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
+    private func registerFonts(forTextStyle style: UIFont.TextStyle, fontName: String?, fontWeight: UIFont.Weight?, baseFontSize: CGFloat, increment: CGFloat, decrement: CGFloat, includeAccessibilitySizes: Bool = false) {
         var fonts: [UIContentSizeCategory: UIFont?] = [:]
         let middleIndex = floor(CGFloat(self.fontSizes.count)/2.0)
 
