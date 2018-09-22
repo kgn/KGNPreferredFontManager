@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'KGNPreferredFontManager'
-  spec.version = '0.2.5'
+  spec.version = '0.7.0'
   spec.authors = {'David Keegan' => 'git@davidkeegan.com'}
   spec.homepage = 'https://github.com/kgn/KGNPreferredFontManager'
   spec.summary = 'Helper class to registering custom fonts for UIFontTextStyle'
