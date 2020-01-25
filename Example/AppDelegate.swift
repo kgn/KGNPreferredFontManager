@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Cannot be lazy in the current version of swift
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window?.rootViewController = FontTestViewController()
         self.window?.makeKeyAndVisible()
         return true

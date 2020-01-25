@@ -73,7 +73,7 @@ class FontTestViewController: UIViewController {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = Float(fontSizes.count-1)
-        if let currentIndex = self.fontSizes.index(of: UIApplication.shared.preferredContentSizeCategory) {
+        if let currentIndex = self.fontSizes.firstIndex(of: UIApplication.shared.preferredContentSizeCategory) {
             slider.value = Float(currentIndex)
         }
         slider.addTarget(self, action: .sliderAction, for: .valueChanged)
